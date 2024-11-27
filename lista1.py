@@ -13,9 +13,9 @@ def q01():
 
 def q02():
 
-    nome = input("Digite seu nome completo: ")
+    nome0 = input("Digite seu nome completo: ")
 
-    nome1 = nome.split()
+    nome1 = nome0.split()
 
     print("Seja bem vindo, {}!".format(nome1[0]))
 
@@ -23,12 +23,12 @@ def q02():
 
 def q03():
 
-    email = input("Digite seu e-mail: ")
+    email0 = input("Digite seu e-mail: ")
 
-    emaildompol = email.split("@")
-    emaildom = emaildompol[1].split(".")
+    email1 = email0.split("@")
+    email2 = email1[1].split(".")
 
-    print("O domínio do e-mail informado é: ", emaildom[0])
+    print("O domínio do e-mail informado é:", email2[0])
 
 #4. Faça um programa para uma loja de tintas. A pessoa informa a área em m2 que deseja pintar,
 #   e o script calculará a quantidade de latas de tinta que a pessoa deve comprar e o valor.
@@ -58,10 +58,10 @@ def q04():
 
 def q05():
 
-    salphora = float(input("Digite quantos reais você ganha por hora: "))
-    numhoras = float(input("Digite quantas horas você trabalha por mês: "))
+    salario = float(input("Digite quantos reais você ganha por hora: "))
+    horas = float(input("Digite quantas horas você trabalha por mês: "))
 
-    bruto = salphora * numhoras
+    bruto = salario * horas
     ir = bruto * 0.11
     inss = bruto * 0.08
     sindicato = bruto * 0.05
@@ -71,8 +71,6 @@ def q05():
     print("Pagou ao INSS: R${:.2f}".format(inss))
     print("Pagou ao sindicato: R${:.2f}".format(sindicato))
     print("Salário líquido: R${:.2f}".format(liquido))
-
-questao = int(input("Digite a questão a ser executada: "))
 
 match questao:
     case 1:
