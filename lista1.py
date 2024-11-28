@@ -72,6 +72,8 @@ def q05():
     print("Pagou ao sindicato: R${:.2f}".format(sindicato))
     print("Salário líquido: R${:.2f}".format(liquido))
 
+questao = int(input("Digite a questão a ser executada: "))
+
 match questao:
     case 1:
         q01()
@@ -84,4 +86,4 @@ match questao:
     case 5:
         q05()
     case _:
-    	print("Opção inválida. \n")
+    	print("Opção inválida.")
