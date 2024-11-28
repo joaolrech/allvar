@@ -98,12 +98,12 @@ def q05():
     print('Salário validado.')
 
     sexo = input('Digite seu sexo ("f" para feminino e "m" para masculino): ')
-    while sexo != 'f' and sexo != 'm':
+    while sexo not in ['f', 'm']:
         sexo = input('Sexo inválido. Digite novamente: ')
     print('Sexo validado.')
 
     estciv = input('Digite seu estado civil ("s" para solteiro, "c" para casado, "v" para viúvo, "d" para divorciado): ')
-    while estciv != 's' and estciv != 'c' and estciv != 'v' and estciv != 'd':
+    while estciv not in ['s', 'c', 'v', 'd']:
         estciv = input('Estado civil inválido. Digite novamente: ')
     print('Estado civil validado.')
 
@@ -130,6 +130,8 @@ def q06():
         print('O número digitado não é primo.')
 
 questao = int(input('Digite a questão a ser executada: '))
+while questao < 1 or questao > 6:
+    questao = (int(input('Questão inválida. Digite novamente: ')))
 
 match questao:
     case 1:
@@ -144,5 +146,3 @@ match questao:
         q05()
     case 6:
         q06()
-    case _:
-    	print('Opção inválida.')

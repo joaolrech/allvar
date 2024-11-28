@@ -2,33 +2,33 @@
 
 def q01():
 
-    altura = float(input("Digite sua altura (m): "))
-    peso = float(input("Digite seu peso (kg): "))
+    altura = float(input('Digite sua altura (m): '))
+    peso = float(input('Digite seu peso (kg): '))
 
     imc = peso / altura ** 2
 
-    print("Seu IMC é: {:.2f}".format(imc))
+    print('Seu IMC é: {:.2f}'.format(imc))
 
 #2. Escreva um programa que pergunte o nome completo do usuário e cumprimente o mesmo pelo primeiro nome.
 
 def q02():
 
-    nome0 = input("Digite seu nome completo: ")
+    nome0 = input('Digite seu nome completo: ')
 
     nome1 = nome0.split()
 
-    print("Seja bem vindo, {}!".format(nome1[0]))
+    print('Seja bem vindo, {}!'.format(nome1[0]))
 
 #3. Escreva um código que extraia o domínio de um e-mail informado.
 
 def q03():
 
-    email0 = input("Digite seu e-mail: ")
+    email0 = input('Digite seu e-mail: ')
 
-    email1 = email0.split("@")
-    email2 = email1[1].split(".")
+    email1 = email0.split('@')
+    email2 = email1[1].split('.')
 
-    print("O domínio do e-mail informado é:", email2[0])
+    print('O domínio do e-mail informado é:', email2[0])
 
 #4. Faça um programa para uma loja de tintas. A pessoa informa a área em m2 que deseja pintar,
 #   e o script calculará a quantidade de latas de tinta que a pessoa deve comprar e o valor.
@@ -36,7 +36,7 @@ def q03():
 
 def q04():
 
-    area = float(input("Digite a área que deseja pintar (m²): "))
+    area = float(input('Digite a área que deseja pintar (m²): '))
 
     litros = area / 3
     latas = int(litros / 18)
@@ -46,7 +46,7 @@ def q04():
     
     preco = latas * 80
 
-    print("Você precisará de {} latas de tinta, e isso irá custar R${:.2f}".format(latas, preco))
+    print('Você precisará de {} latas de tinta, e isso irá custar R${:.2f}'.format(latas, preco))
 
 #5. Faça um Programa que pergunte quanto você ganha por hora e o número de horas trabalhadas no mês.
 #   Calcule e mostre o total do seu salário no referido mês, sabendo-se que são descontados 11% para o Imposto de Renda,
@@ -58,8 +58,8 @@ def q04():
 
 def q05():
 
-    salario = float(input("Digite quantos reais você ganha por hora: "))
-    horas = float(input("Digite quantas horas você trabalha por mês: "))
+    salario = float(input('Digite quantos reais você ganha por hora: '))
+    horas = float(input('Digite quantas horas você trabalha por mês: '))
 
     bruto = salario * horas
     ir = bruto * 0.11
@@ -67,12 +67,14 @@ def q05():
     sindicato = bruto * 0.05
     liquido = bruto - ir - inss - sindicato
 
-    print("Salário bruto: R${:.2f}".format(bruto))
-    print("Pagou ao INSS: R${:.2f}".format(inss))
-    print("Pagou ao sindicato: R${:.2f}".format(sindicato))
-    print("Salário líquido: R${:.2f}".format(liquido))
+    print('Salário bruto: R${:.2f}'.format(bruto))
+    print('Pagou ao INSS: R${:.2f}'.format(inss))
+    print('Pagou ao sindicato: R${:.2f}'.format(sindicato))
+    print('Salário líquido: R${:.2f}'.format(liquido))
 
-questao = int(input("Digite a questão a ser executada: "))
+questao = int(input('Digite a questão a ser executada: '))
+while questao < 1 or questao > 5:
+    questao = (int(input('Questão inválida. Digite novamente: ')))
 
 match questao:
     case 1:
@@ -85,5 +87,3 @@ match questao:
         q04()
     case 5:
         q05()
-    case _:
-    	print("Opção inválida.")
