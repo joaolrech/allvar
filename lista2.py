@@ -5,13 +5,38 @@
 
 def q01():
 
-    print("Esse exercício ainda não foi feito.")
+    nota1 = float(input('Digite a nota 1: '))
+    while nota1 < 0 and nota1 > 10:
+        nota1 = float(input('Nota inválida. Digite novamente: '))
+
+    nota2 = float(input('Digite a nota 2: '))
+    while nota2 < 0 and nota1 > 10:
+        nota2 = float(input('Nota inválida. Digite novamente: '))
+
+    media = (nota1 + nota2) / 2
+
+    print('Média: {:.1f}'.format(media))
+
+    if media == 10:
+        print('Aprovado com distinção.')
+    elif media >= 7:
+        print('Aprovado.')
+    else:
+        print('Reprovado.')
 
 #2. Escreva um script que leia três números e mostre o maior e o menor deles.
 
 def q02():
 
-    print("Esse exercício ainda não foi feito.")
+    lista = []
+    for i in range(3):
+        lista.append(int(input('Digite o {}º número: '.format(i + 1))))
+
+    maior = max(lista)
+    menor = min(lista)
+
+    print('Maior número: ', maior)
+    print('Menor número: ', menor)
 
 #3. Nome na vertical em escada.
 #   F
@@ -23,7 +48,10 @@ def q02():
 
 def q03():
 
-    print("Esse exercício ainda não foi feito.")
+    nome = input('Digite seu nome: ')
+
+    for i in range(len(nome)):
+        print(nome[:i + 1])
 
 #4. A série de Fibonacci é formada pela seqüência 1,1,2,3,5,8,13,21,34,55,...
 #   (o próximo termo, a partir do terceiro, é sempre gerado a partir do somatório dos últimos dois).
@@ -31,7 +59,19 @@ def q03():
 
 def q04():
 
-    print("Esse exercício ainda não foi feito.")
+    n = int(input('Digite quantos termos deseja: '))
+
+    a, b = 1, 1
+    
+    if n >= 1:
+        print(a)
+    if n >=2:
+        print(b)
+
+    for _ in range(2, n):
+        c = a + b
+        print(c)
+        a, b = b, c
 
 #5. Faça um programa que leia e valide as seguintes informações:
 #   • Nome: maior que 3 caracteres;
@@ -42,13 +82,54 @@ def q04():
 
 def q05():
 
-    print("Esse exercício ainda não foi feito.")
+    nome = input('Digite seu nome: ')
+    while len(nome) <= 3:
+        nome = input('Nome inválido. Digite novamente: ')
+    print('Nome validado.')
+
+    idade = int(input('Digite sua idade: '))
+    while idade < 0 or idade > 150:
+        idade = int(input('Idade inválida. Digite novamente: '))
+    print('Idade validada.')
+
+    salario = float(input('Digite seu salário: '))
+    while salario <= 0:
+        salario = float(input('Salário inválido. Digite novamente: '))
+    print('Salário validado.')
+
+    sexo = input('Digite seu sexo ("f" para feminino e "m" para masculino): ')
+    while sexo != 'f' and sexo != 'm':
+        sexo = input('Sexo inválido. Digite novamente: ')
+    print('Sexo validado.')
+
+    estciv = input('Digite seu estado civil ("s" para solteiro, "c" para casado, "v" para viúvo, "d" para divorciado): ')
+    while estciv != 's' and estciv != 'c' and estciv != 'v' and estciv != 'd':
+        estciv = input('Estado civil inválido. Digite novamente: ')
+    print('Estado civil validado.')
 
 # 6. Faça um programa que peça um número inteiro e determine se ele é ou não um número primo.
 #    Um número primo é aquele que é divisível somente por ele mesmo e por 1. Dica: Utilize o operador aritmético %,
 #    que retorna o resto da divisão de dois números.
 
-questao = int(input("Digite a questão a ser executada: "))
+def q06():
+
+    num = int(input('Digite um número inteiro: '))
+
+    primo = True
+
+    if num <= 1:
+        primo = False
+
+    for i in range(2, num ** (1 / 2)):
+        if num % i == 0:
+            primo = False
+
+    if primo:
+        print('O número digitado é primo.')
+    else:
+        print('O número digitado não é primo.')
+
+questao = int(input('Digite a questão a ser executada: '))
 
 match questao:
     case 1:
@@ -64,4 +145,4 @@ match questao:
     case 6:
         q06()
     case _:
-    	print("Opção inválida.")
+    	print('Opção inválida.')
