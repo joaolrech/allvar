@@ -120,9 +120,10 @@ def q06():
     if num <= 1:
         primo = False
 
-    for i in range(2, num ** (1 / 2)):
+    for i in range(2, int(num ** (1 / 2)) + 1):
         if num % i == 0:
             primo = False
+            break
 
     if primo:
         print('O número digitado é primo.')
