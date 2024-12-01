@@ -1,16 +1,16 @@
 import os
 
-def adicao(x, y)
+def adicao(x, y):
     return x + y
-def subtracao(x, y)
+def subtracao(x, y):
     return x - y
-def multiplicacao(x, y)
+def multiplicacao(x, y):
     return x * y
-def divisao(x, y)
+def divisao(x, y):
     return x / y
-def exponenciacao(x, y)
+def exponenciacao(x, y):
     return x ** y
-def radiciacao(x, y)
+def radiciacao(x, y):
     return x ** (1 / y)
 
 print('Bem vindo à calculadora.py!')
