@@ -6,7 +6,7 @@ def adicao():
     x = float(input('Digite o 1º termo da operação: '))
     y = float(input('Digite o 2º termo da operação: '))
     os.system("clear")
-    print('Somando {:.2f} com {:.2f}: {:.2f}'.format(x, y, x + y))
+    print(f'Somando {x:g} com {y:g}: {x + y:g}')
     print('\n')
 
 def subtracao():
@@ -15,7 +15,7 @@ def subtracao():
     x = float(input('Digite o 1º termo da operação: '))
     y = float(input('Digite o 2º termo da operação: '))
     os.system("clear")
-    print('Subtraindo {:.2f} de {:.2f}: {:.2f}'.format(y, x, x - y))
+    print(f'Subtraindo {y:g} de {x:g}: {x - y:g}')
     print('\n')
 
 def multiplicacao():
@@ -24,7 +24,7 @@ def multiplicacao():
     x = float(input('Digite o 1º termo da operação: '))
     y = float(input('Digite o 2º termo da operação: '))
     os.system("clear")
-    print('Multiplicando {:.2f} por {:.2f}: {:.2f}'.format(x, y, x * y))
+    print(f'Multiplicando {x:g} por {y:g}: {x * y:g}')
     print('\n')
 
 def divisao():
@@ -36,7 +36,7 @@ def divisao():
     if y == 0:
         print('Impossível dividir por 0.')
     else:
-        print('Dividindo {:.2f} por {:.2f}: {:.2f}'.format(x, y, x / y))
+        print(f'Dividindo {x:g} por {y:g}: {x / y:g}')
     print('\n')
 
 def exponenciacao():
@@ -45,7 +45,7 @@ def exponenciacao():
     x = float(input('Digite o 1º termo da operação: '))
     y = float(input('Digite o 2º termo da operação: '))
     os.system("clear")
-    print('Elevando {:.2f} a {:.2f}: {:.2f}'.format(x, y, x ** y))
+    print(f'Elevando {x:g} a {y:g}: {x ** y:g}')
     print('\n')
 
 def radiciacao():
@@ -54,12 +54,12 @@ def radiciacao():
     x = float(input('Digite o 1º termo da operação: '))
     y = float(input('Digite o 2º termo da operação: '))
     os.system("clear")
-    print('Radiciando {:.2f} de {:.2f}: {:.2f}'.format(x, y, x ** (1 / y)))
+    print(f'Radiciando {x:g} de {y:g}: {x / (1 / y):g}')
     print('\n')
 
 while True:
     os.system("clear")
-    print('Bem vindo à calculadora.py!')
+    print('Bem vindo à calculadora em python!')
     print('\n')
     print('Selecione a operação desejada: ')
     print('1 - Adição')
