@@ -1,76 +1,61 @@
 import os
 
 def adicao():
-    print('SOMA')
-    print('\n')
+    print('SOMA \n')
     x = float(input('Digite o 1º termo da operação: '))
     y = float(input('Digite o 2º termo da operação: '))
     os.system("clear")
-    print(f'Somando {x:g} com {y:g}: {x + y:g}')
-    print('\n')
+    print(f'Somando {x:g} com {y:g}: {x + y:g} \n')
 
 def subtracao():
-    print('SUBTRAÇÃO')
-    print('\n')
+    print('SUBTRAÇÃO \n')
     x = float(input('Digite o 1º termo da operação: '))
     y = float(input('Digite o 2º termo da operação: '))
     os.system("clear")
-    print(f'Subtraindo {y:g} de {x:g}: {x - y:g}')
-    print('\n')
+    print(f'Subtraindo {y:g} de {x:g}: {x - y:g} \n')
 
 def multiplicacao():
-    print('MULTIPLICAÇÃO')
-    print('\n')
+    print('MULTIPLICAÇÃO \n')
     x = float(input('Digite o 1º termo da operação: '))
     y = float(input('Digite o 2º termo da operação: '))
     os.system("clear")
-    print(f'Multiplicando {x:g} por {y:g}: {x * y:g}')
-    print('\n')
+    print(f'Multiplicando {x:g} por {y:g}: {x * y:g} \n')
 
 def divisao():
-    print('DIVISÃO')
-    print('\n')
+    print('DIVISÃO \n')
     x = float(input('Digite o 1º termo da operação: '))
     y = float(input('Digite o 2º termo da operação: '))
     os.system("clear")
     if y == 0:
-        print('Impossível dividir por 0.')
+        print('Impossível dividir por 0. \n')
     else:
-        print(f'Dividindo {x:g} por {y:g}: {x / y:g}')
-    print('\n')
+        print(f'Dividindo {x:g} por {y:g}: {x / y:g} \n')
 
 def exponenciacao():
-    print('EXPONENCIAÇÃO')
-    print('\n')
+    print('EXPONENCIAÇÃO \n')
     x = float(input('Digite o 1º termo da operação: '))
     y = float(input('Digite o 2º termo da operação: '))
     os.system("clear")
-    print(f'Elevando {x:g} a {y:g}: {x ** y:g}')
-    print('\n')
+    print(f'Elevando {x:g} a {y:g}: {x ** y:g} \n')
 
 def radiciacao():
-    print('RADICIAÇÃO')
-    print('\n')
+    print('RADICIAÇÃO \n')
     x = float(input('Digite o 1º termo da operação: '))
     y = float(input('Digite o 2º termo da operação: '))
     os.system("clear")
-    print(f'Radiciando {x:g} de {y:g}: {x / (1 / y):g}')
-    print('\n')
+    print(f'Radiciando {x:g} de {y:g}: {x / (1 / y):g} \n')
 
 while True:
     os.system("clear")
-    print('Bem vindo à calculadora em python!')
-    print('\n')
+    print('Bem vindo à calculadora.py! \n')
     print('Selecione a operação desejada: ')
     print('1 - Adição')
     print('2 - Subtração')
     print('3 - Multiplicação')
     print('4 - Divisão')
     print('5 - Exponenciação')
-    print('6 - Radiciação')
-    print('\n')
-    print('0 - SAIR')
-    print('\n') 
+    print('6 - Radiciação \n')
+    print('0 - SAIR \n')
     operacao = int(input())
     while operacao < 0 or operacao > 6:
         operacao = int(input('Operação inválida. Tente novamente: '))
@@ -93,11 +78,9 @@ while True:
         case 6:
             radiciacao()
 
-    print('Deseja realizar outra operação?')
-    print('\n')    
+    print('Deseja realizar outra operação? \n')
     print('1 - SIM')
-    print('0 - NÃO')
-    print('\n') 
+    print('0 - NÃO \n')
     operacao = int(input())
     while operacao < 0 or operacao > 1:
         operacao = int(input('Opção inválida. Tente novamente: '))
