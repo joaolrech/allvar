@@ -10,7 +10,7 @@ def inpintfix():
         except ValueError:
             os.system("clear")
             print('Entrada inválida. Tente novamente.\n')
-            menu()
+            printmenu()
 
 def inpintvar(quant, state):
     while True:
@@ -34,7 +34,7 @@ def inpint(desc):
         except ValueError:
             print('Entrada inválida. Tente novamente.')
 
-def menu():
+def printmenu():
     print('Selecione a opção desejada: ')
     print('1 - Locar veículo')
     print('2 - Devolver veículo \n')
@@ -86,7 +86,7 @@ os.system("clear")
 print('Bem vindo à locadora.py! \n')
 
 while True:
-    menu()
+    printmenu()
     opcao = inpintfix()
     os.system('clear')
 
