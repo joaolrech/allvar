@@ -1,11 +1,11 @@
 import os
 
-def inpfloat():
+def inpfloat(desc):
     while True:
         try:
-            return float(input())
+            return float(input(desc))
         except ValueError:
-            print('Entrada inválida. Tente novamente: ', end='')
+            print('Entrada inválida. Tente novamente.')
 
 def inpstr():
     while True:
@@ -16,7 +16,7 @@ def inpstr():
             return inp
         except ValueError:
             os.system("clear")
-            print('Entrada inválida. Tente novamente. \n')
+            print('Entrada inválida. Tente novamente.\n')
             menu()
 
 def menu():
@@ -29,10 +29,8 @@ def menu():
 
 def entrada(titulo):
     print(f'{titulo} \n')
-    print(f'Digite o 1º termo da operação: ', end='')
-    x = inpfloat()
-    print(f'Digite o 2º termo da operação: ', end='')
-    y = inpfloat()
+    x = inpfloat('Digite o 1º termo da operação: ')
+    y = inpfloat('Digite o 2º termo da operação: ')
     os.system("clear")
     return x, y
 
@@ -55,14 +53,8 @@ os.system("clear")
 print('Bem vindo à calculadora.py! \n')
 
 while True:
-
     menu()
-
     operacao = inpstr()
-
-    if operacao == 'X':
-        break
-
     os.system("clear")
 
     match operacao:
@@ -78,6 +70,8 @@ while True:
         case '/':
             x, y = entrada('DIVISÃO')
             divisao(x, y)
+        case 'X':
+            break
 
 os.system("clear")
 print('Programa finalizado.')
