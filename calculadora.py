@@ -7,7 +7,7 @@ def menu():
     print('* Multiplicação')
     print('/ Divisão \n')
     print('X SAIR \n')
-    
+
 def inputfloat():
     while True:
         try:
@@ -18,7 +18,7 @@ def inputfloat():
 def inputstr():
     while True:
         try:
-            var = input().upper()
+            var = input().upper().strip()
             if var not in ['+', '-', '*', '/', 'X']:
                 raise ValueError
             return var
