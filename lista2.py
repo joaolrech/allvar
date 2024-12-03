@@ -6,16 +6,11 @@
 def q01():
 
     nota1 = float(input('Digite a nota 1: '))
-    while nota1 < 0 and nota1 > 10:
-        nota1 = float(input('Nota inválida. Digite novamente: '))
-
     nota2 = float(input('Digite a nota 2: '))
-    while nota2 < 0 and nota1 > 10:
-        nota2 = float(input('Nota inválida. Digite novamente: '))
 
     media = (nota1 + nota2) / 2
 
-    print('Média: {:.1f}'.format(media))
+    print(f'Média: {media:.1f}')
 
     if media == 10:
         print('Aprovado com distinção.')
@@ -30,7 +25,7 @@ def q02():
 
     lista = []
     for i in range(3):
-        lista.append(int(input('Digite o {}º número: '.format(i + 1))))
+        lista.append(int(input(f'Digite o {i + 1}º número: ')))
 
     maior = max(lista)
     menor = min(lista)
@@ -61,17 +56,17 @@ def q04():
 
     n = int(input('Digite quantos termos deseja: '))
 
-    a, b = 1, 1
+    x, y = 1, 1
     
     if n >= 1:
-        print(a)
-    if n >=2:
-        print(b)
+        print(x)
+    if n >= 2:
+        print(y)
 
     for _ in range(2, n):
-        c = a + b
-        print(c)
-        a, b = b, c
+        z = x + y
+        print(z)
+        x, y = y, z
 
 #5. Faça um programa que leia e valide as seguintes informações:
 #   • Nome: maior que 3 caracteres;
@@ -84,27 +79,27 @@ def q05():
 
     nome = input('Digite seu nome: ')
     while len(nome) <= 3:
-        nome = input('Nome inválido. Digite novamente: ')
+        nome = input('Nome inválido. Tente novamente: ')
     print('Nome validado.')
 
     idade = int(input('Digite sua idade: '))
     while idade < 0 or idade > 150:
-        idade = int(input('Idade inválida. Digite novamente: '))
+        idade = int(input('Idade inválida. Tente novamente: '))
     print('Idade validada.')
 
     salario = float(input('Digite seu salário: '))
     while salario <= 0:
-        salario = float(input('Salário inválido. Digite novamente: '))
+        salario = float(input('Salário inválido. Tente novamente: '))
     print('Salário validado.')
 
     sexo = input('Digite seu sexo ("f" para feminino e "m" para masculino): ')
     while sexo not in ['f', 'm']:
-        sexo = input('Sexo inválido. Digite novamente: ')
+        sexo = input('Sexo inválido. Tente novamente: ')
     print('Sexo validado.')
 
     estciv = input('Digite seu estado civil ("s" para solteiro, "c" para casado, "v" para viúvo, "d" para divorciado): ')
     while estciv not in ['s', 'c', 'v', 'd']:
-        estciv = input('Estado civil inválido. Digite novamente: ')
+        estciv = input('Estado civil inválido. Tente novamente: ')
     print('Estado civil validado.')
 
 # 6. Faça um programa que peça um número inteiro e determine se ele é ou não um número primo.
@@ -120,7 +115,7 @@ def q06():
     if num <= 1:
         primo = False
 
-    for i in range(2, int(num ** (1 / 2)) + 1):
+    for i in range(2, num):
         if num % i == 0:
             primo = False
             break
@@ -131,8 +126,6 @@ def q06():
         print('O número digitado não é primo.')
 
 questao = int(input('Digite a questão a ser executada: '))
-while questao < 1 or questao > 6:
-    questao = (int(input('Questão inválida. Digite novamente: ')))
 
 match questao:
     case 1:

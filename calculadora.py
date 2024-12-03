@@ -1,31 +1,40 @@
 import os
 
+def inpfloat():
+    while True:
+        try:
+            return float(input())
+        except ValueError:
+            print('Entrada inválida. Tente novamente: ', end='')
+
+def inpstr():
+    while True:
+        try:
+            inp = input().upper().strip()
+            if inp not in ['+', '-', '*', '/', 'X']:
+                raise ValueError
+            return inp
+        except ValueError:
+            os.system("clear")
+            print('Entrada inválida. Tente novamente. \n')
+            menu()
+
 def menu():
     print('Selecione a operação desejada: ')
     print('+ Adição')
     print('- Subtração')
     print('* Multiplicação')
     print('/ Divisão \n')
-    print('X SAIR \n')
+    print('X SAIR')
 
-def inputfloat():
-    while True:
-        try:
-            return float(input())
-        except ValueError:
-            print('Entrada inválida. Tente novamente. \n')
-
-def inputstr():
-    while True:
-        try:
-            var = input().upper().strip()
-            if var not in ['+', '-', '*', '/', 'X']:
-                raise ValueError
-            return var
-        except ValueError:
-            os.system("clear")
-            print('Entrada inválida. Tente novamente.\n')
-            menu()
+def entrada(titulo):
+    print(f'{titulo} \n')
+    print(f'Digite o 1º termo da operação: ', end='')
+    x = inpfloat()
+    print(f'Digite o 2º termo da operação: ', end='')
+    y = inpfloat()
+    os.system("clear")
+    return x, y
 
 def adicao(x, y):
     print(f'{x:g} + {y:g} = {x + y:g} \n')
@@ -42,15 +51,6 @@ def divisao(x, y):
     else:
         print(f'{x:g} / {y:g} = {x / y:g} \n')
 
-def entrada(titulo):
-    print(f'{titulo} \n')
-    print(f'Digite o 1º termo da operação: ', end='')
-    x = inputfloat()
-    print(f'Digite o 2º termo da operação: ', end='')
-    y = inputfloat()
-    os.system("clear")
-    return x, y
-
 os.system("clear")
 print('Bem vindo à calculadora.py! \n')
 
@@ -58,7 +58,7 @@ while True:
 
     menu()
 
-    operacao = inputstr()
+    operacao = inpstr()
 
     if operacao == 'X':
         break
