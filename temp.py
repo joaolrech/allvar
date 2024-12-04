@@ -43,12 +43,12 @@ def printmenu():
 def listar(var):
     if var == 'disp':
         print('Veículos disponíveis:')
-        for i, (veiculo, preco) in enumerate(disponiveis.items(), start = 1):
-            print(f'{i} - {veiculo} - R${preco}.00/dia')
+        for i, (veiculo, preco) in enumerate(disponiveis, start = 1):
+            print(f'{i} - {veiculo} - R${preco:.2f}/dia')
     if var == 'loc':
         if locados:
             print('Veículos locados:')
-            for i, veiculo in enumerate(locados, start = 1):
+            for i, (veiculo, preco) in enumerate(locados, start = 1):
                 print(f'{i} - {veiculo}')
         else:
             print('Nenhum veículo está locado.')
@@ -86,9 +86,10 @@ while True:
             os.system("clear")
             if escolha == 0:
                 continue
-            veiculolocado = list(disponiveis.keys())[escolha - 1]
+            veiculolocado = disponiveis[escolha - 1][0]
+            preco = disponiveis[escolha - 1][1]
             print(f'{veiculolocado} locado. \n')
-            locados[veiculolocado] = disponiveis.pop(veiculolocado)
+            locados.append(disponiveis.pop(escolha - 1))
         case 2:
             state = 'loc'
             listar(state)
@@ -96,12 +97,13 @@ while True:
             os.system("clear")
             if escolha == 0:
                 continue
-            veiculodevolvido = list(locados.keys())[escolha - 1]
+            veiculodevolvido = locados[escolha - 1][0]
+            preco = locados[escolha - 1][1]
             dias = inpint(f'Digite quantos dias você ficou com o {veiculodevolvido}: ')
             os.system("clear")
             print(f'{veiculodevolvido} devolvido.')
-            print(f'Valor em haver: R${locados[veiculodevolvido] * dias}.00 \n')
-            disponiveis[veiculodevolvido] = locados.pop(veiculodevolvido)
+            print(f'Valor em haver: R${preco * dias:.2f} \n')
+            disponiveis.append(locados.pop(escolha - 1))
         case 0:
             break
 

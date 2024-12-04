@@ -44,7 +44,7 @@ def listar(var):
     if var == 'disp':
         print('Veículos disponíveis:')
         for i, (veiculo, preco) in enumerate(disponiveis.items(), start = 1):
-            print(f'{i} - {veiculo} - R${preco}.00/dia')
+            print(f'{i} - {veiculo} - R${preco:.2f}/dia')
     if var == 'loc':
         if locados:
             print('Veículos locados:')
