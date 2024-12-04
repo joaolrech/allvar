@@ -1,6 +1,6 @@
 import os
 
-def inptintfix():
+def inptmenu():
     while True:
         try:
             inpt = int(input())
@@ -12,7 +12,7 @@ def inptintfix():
             print('Entrada inválida. Tente novamente.\n')
             printmenu()
 
-def inptintvar(quant, lista):
+def inptcarro(quant, lista):
     while True:
         try:
             inpt = int(input())
@@ -24,7 +24,7 @@ def inptintvar(quant, lista):
             print('Entrada inválida. Tente novamente.\n')
             listar(lista)
 
-def inptint(desc):
+def inptdias(desc):
     while True:
         try:
             inpt = int(input(desc))
@@ -71,13 +71,13 @@ print('Bem vindo à locadora.py! \n')
 
 while True:
     printmenu()
-    opcao = inptintfix()
+    opcao = inptmenu()
     os.system('clear')
 
     match opcao:
         case 1:
             listar(disponiveis)
-            escolha = inptintvar(len(disponiveis), disponiveis)
+            escolha = inptcarro(len(disponiveis), disponiveis)
             os.system("clear")
             if escolha == 0:
                 continue
@@ -86,12 +86,12 @@ while True:
             locados.append(disponiveis.pop(escolha - 1))
         case 2:
             listar(locados)
-            escolha = inptintvar(len(locados), locados)
+            escolha = inptcarro(len(locados), locados)
             os.system("clear")
             if escolha == 0:
                 continue
             veiculodevolvido = locados[escolha - 1][0]
-            dias = inptint(f'Digite quantos dias você ficou com o {veiculodevolvido}: ')
+            dias = inptdias(f'Digite quantos dias você ficou com o {veiculodevolvido}: ')
             os.system("clear")
             print(f'{veiculodevolvido} devolvido.')
             print(f'Valor em haver: R${locados[escolha - 1][1] * dias:.2f} \n')
