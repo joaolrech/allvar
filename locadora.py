@@ -42,42 +42,17 @@ def printmenu():
 
 def listar(var):
     if var == 'disp':
-        print('Veículos disponíveis: \n')
+        print('Veículos disponíveis:')
         for i, (veiculo, preco) in enumerate(disponiveis.items(), start = 1):
             print(f'{i} - {veiculo} - R${preco}.00/dia')
     if var == 'loc':
         if locados:
-            print('Veículos locados: \n')
+            print('Veículos locados:')
             for i, veiculo in enumerate(locados, start = 1):
                 print(f'{i} - {veiculo}')
         else:
             print('Nenhum veículo está locado.')
     print('\n0 - VOLTAR')
-
-def catdisponiveis():
-    state = 'disp'
-    listar(state)
-    escolha = inpintvar(len(disponiveis), state)
-    os.system("clear")
-    if escolha == 0:
-        return
-    veiculolocado = list(disponiveis.keys())[escolha - 1]
-    print(f'{veiculolocado} locado. \n')
-    locados[veiculolocado] = disponiveis.pop(veiculolocado)
-
-def catlocados():
-    state = 'loc'
-    listar(state)
-    escolha = inpintvar(len(locados), state)
-    os.system("clear")
-    if escolha == 0:
-        return
-    veiculodevolvido = list(locados.keys())[escolha - 1]
-    dias = inpint(f'Digite quantos dias você ficou com o {veiculodevolvido}: ')
-    os.system("clear")
-    print(f'{veiculodevolvido} devolvido.')
-    print(f'Valor em haver: R${locados[veiculodevolvido] * dias}.00 \n')
-    disponiveis[veiculodevolvido] = locados.pop(veiculodevolvido)
 
 disponiveis = {'Model 3':90, 'Model S':150, 'Model Y':125, 'Model X':110}
 locados = {}
@@ -92,9 +67,28 @@ while True:
 
     match opcao:
         case 1:
-            catdisponiveis()
+            state = 'disp'
+            listar(state)
+            escolha = inpintvar(len(disponiveis), state)
+            os.system("clear")
+            if escolha == 0:
+                continue
+            veiculolocado = list(disponiveis.keys())[escolha - 1]
+            print(f'{veiculolocado} locado. \n')
+            locados[veiculolocado] = disponiveis.pop(veiculolocado)
         case 2:
-            catlocados()
+            state = 'loc'
+            listar(state)
+            escolha = inpintvar(len(locados), state)
+            os.system("clear")
+            if escolha == 0:
+                continue
+            veiculodevolvido = list(locados.keys())[escolha - 1]
+            dias = inpint(f'Digite quantos dias você ficou com o {veiculodevolvido}: ')
+            os.system("clear")
+            print(f'{veiculodevolvido} devolvido.')
+            print(f'Valor em haver: R${locados[veiculodevolvido] * dias}.00 \n')
+            disponiveis[veiculodevolvido] = locados.pop(veiculodevolvido)
         case 0:
             break
 

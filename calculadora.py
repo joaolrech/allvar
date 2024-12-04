@@ -18,7 +18,7 @@ def inptmenu():
             return inpt
 
 def printmenu():
-    print('Selecione a operação desejada: ')
+    print('Selecione a operação desejada:')
     print('+ Adição')
     print('- Subtração')
     print('* Multiplicação')
@@ -37,10 +37,10 @@ print('Bem vindo à calculadora.py! \n')
 
 while True:
     printmenu()
-    operacao = inptmenu()
+    op = inptmenu()
     os.system("clear")
 
-    match operacao:
+    match op:
         case '+':
             x, y = entrada('SOMA')
             z = x + y
@@ -59,7 +59,7 @@ while True:
         case 'X':
             break
 
-    print(f'{x:g} {operacao} {y:g} = {z:g} \n')
+    print(f'{x:g} {op} {y:g} = {z:g} \n')
 
 os.system("clear")
 print('Programa finalizado.')
