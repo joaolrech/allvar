@@ -12,7 +12,7 @@ def inpintfix():
             print('Entrada inválida. Tente novamente.\n')
             printmenu()
 
-def inpintvar(quant, state):
+def inpintvar(quant, lista):
     while True:
         try:
             inp = int(input())
@@ -22,7 +22,7 @@ def inpintvar(quant, state):
         except ValueError:
             os.system("clear")
             print('Entrada inválida. Tente novamente.\n')
-            listar(state)
+            listar(lista)
 
 def inpint(desc):
     while True:
@@ -37,28 +37,39 @@ def inpint(desc):
 def printmenu():
     print('Selecione a opção desejada: ')
     print('1 - Locar veículo')
-    print('2 - Devolver veículo \n')
-    print('0 - SAIR')
+    print('2 - Devolver veículo\n')
+    print('0 - SAIR\n')
 
-def listar(var):
-    if var == 'disp':
-        print('Veículos disponíveis:')
-        for i, (veiculo, preco) in enumerate(disponiveis.items(), start = 1):
-            print(f'{i} - {veiculo} - R${preco:.2f}/dia')
-    if var == 'loc':
-        if locados:
-            print('Veículos locados:')
-            for i, veiculo in enumerate(locados, start = 1):
-                print(f'{i} - {veiculo}')
-        else:
-            print('Nenhum veículo está locado.')
-    print('\n0 - VOLTAR')
+def listar(lista):
+    if lista:
+        print('Veículos disponíveis: ' if lista == disponiveis
+        else 'Veículos locados: ')
+        for i, (veiculo, preco) in enumerate(lista, start = 1):
+            print(f'{i} - {veiculo} - R${preco:.2f}/dia' if lista == disponiveis
+            else f'{i} - {veiculo}')
+    else:
+        print('Nenhum veículo está disponível.' if lista == disponiveis
+        else 'Nenhum veículo está locado.')
+    print('\n0 - VOLTAR\n')
 
-disponiveis = {'Model 3':90, 'Model S':150, 'Model Y':125, 'Model X':110}
-locados = {}
+disponiveis = [
+    ('Dolphin Mini', 87.06),
+    ('Dolphin', 116.72),
+    ('Dolphin Plus', 124.54),
+    ('Han', 405.83),
+    ('King', 124.05),
+    ('Seal', 197.92),
+    ('Shark', 306.42),
+    ('Song Plus', 169.75),
+    ('Song Pro', 133.06),
+    ('Tan', 374.14),
+    ('Yuan Plus', 155.51),
+    ('Yuan Pro', 132.2),
+]
+locados = []
 
 os.system("clear")
-print('Bem vindo à locadora.py! \n')
+print('Bem vindo à locadora.py!\n')
 
 while True:
     printmenu()
@@ -67,28 +78,26 @@ while True:
 
     match opcao:
         case 1:
-            state = 'disp'
-            listar(state)
-            escolha = inpintvar(len(disponiveis), state)
+            listar(disponiveis)
+            escolha = inpintvar(len(disponiveis), disponiveis)
             os.system("clear")
             if escolha == 0:
                 continue
-            veiculolocado = list(disponiveis.keys())[escolha - 1]
-            print(f'{veiculolocado} locado. \n')
-            locados[veiculolocado] = disponiveis.pop(veiculolocado)
+            veiculolocado = disponiveis[escolha - 1][0]
+            print(f'{veiculolocado} locado.\n')
+            locados.append(disponiveis.pop(escolha - 1))
         case 2:
-            state = 'loc'
-            listar(state)
-            escolha = inpintvar(len(locados), state)
+            listar(locados)
+            escolha = inpintvar(len(locados), locados)
             os.system("clear")
             if escolha == 0:
                 continue
-            veiculodevolvido = list(locados.keys())[escolha - 1]
+            veiculodevolvido = locados[escolha - 1][0]
             dias = inpint(f'Digite quantos dias você ficou com o {veiculodevolvido}: ')
             os.system("clear")
             print(f'{veiculodevolvido} devolvido.')
-            print(f'Valor em haver: R${locados[veiculodevolvido] * dias}.00 \n')
-            disponiveis[veiculodevolvido] = locados.pop(veiculodevolvido)
+            print(f'Valor em haver: R${locados[escolha - 1][1] * dias:.2f}\n')
+            disponiveis.append(locados.pop(escolha - 1))
         case 0:
             break
 

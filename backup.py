@@ -38,37 +38,37 @@ def printmenu():
     print('Selecione a opção desejada: ')
     print('1 - Locar veículo')
     print('2 - Devolver veículo \n')
-    print('0 - SAIR')
+    print('0 - SAIR \n')
 
 def listar(var):
     if var == 'disp':
         print('Veículos disponíveis:')
-        for i, (veiculo, preco) in enumerate(disponiveis, start = 1):
+        for i, (veiculo, preco) in enumerate(disponiveis.items(), start = 1):
             print(f'{i} - {veiculo} - R${preco:.2f}/dia')
     if var == 'loc':
         if locados:
             print('Veículos locados:')
-            for i, (veiculo, preco) in enumerate(locados, start = 1):
+            for i, veiculo in enumerate(locados, start = 1):
                 print(f'{i} - {veiculo}')
         else:
             print('Nenhum veículo está locado.')
-    print('\n0 - VOLTAR')
+    print('\n0 - VOLTAR \n')
 
-disponiveis = [
-    ['Dolphin Mini', 87.06],
-    ['Dolphin', 116.72],
-    ['Dolphin Plus', 124.54],
-    ['Han', 405.83],
-    ['King', 124.05],
-    ['Seal', 197.92],
-    ['Shark', 306.42],
-    ['Song Plus', 169.75],
-    ['Song Pro', 133.06],
-    ['Tan', 374.14],
-    ['Yuan Plus', 155.51],
-    ['Yuan Pro', 132.2],
-]
-locados = []
+disponiveis = {
+    'Dolphin Mini' : 87.06,
+    'Dolphin' : 116.72,
+    'Dolphin Plus' : 124.54,
+    'Han' : 405.83,
+    'King' : 124.05,
+    'Seal' : 197.92,
+    'Shark' : 306.42,
+    'Song Plus' : 169.75,
+    'Song Pro' : 133.06,
+    'Tan' : 374.14,
+    'Yuan Plus' : 155.51,
+    'Yuan Pro' : 132.2,
+    }
+locados = {}
 
 os.system("clear")
 print('Bem vindo à locadora.py! \n')
@@ -86,10 +86,9 @@ while True:
             os.system("clear")
             if escolha == 0:
                 continue
-            veiculolocado = disponiveis[escolha - 1][0]
-            preco = disponiveis[escolha - 1][1]
+            veiculolocado = list(disponiveis.keys())[escolha - 1]
             print(f'{veiculolocado} locado. \n')
-            locados.append(disponiveis.pop(escolha - 1))
+            locados[veiculolocado] = disponiveis.pop(veiculolocado)
         case 2:
             state = 'loc'
             listar(state)
@@ -97,13 +96,12 @@ while True:
             os.system("clear")
             if escolha == 0:
                 continue
-            veiculodevolvido = locados[escolha - 1][0]
-            preco = locados[escolha - 1][1]
+            veiculodevolvido = list(locados.keys())[escolha - 1]
             dias = inpint(f'Digite quantos dias você ficou com o {veiculodevolvido}: ')
             os.system("clear")
             print(f'{veiculodevolvido} devolvido.')
-            print(f'Valor em haver: R${preco * dias:.2f} \n')
-            disponiveis.append(locados.pop(escolha - 1))
+            print(f'Valor em haver: R${locados[veiculodevolvido] * dias:.2f} \n')
+            disponiveis[veiculodevolvido] = locados.pop(veiculodevolvido)
         case 0:
             break
 
