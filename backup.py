@@ -12,7 +12,7 @@ def inptintfix():
             print('Entrada inválida. Tente novamente.\n')
             printmenu()
 
-def inptintvar(quant, state):
+def inptintvar(quant, lista):
     while True:
         try:
             inp = int(input())
@@ -22,7 +22,7 @@ def inptintvar(quant, state):
         except ValueError:
             os.system("clear")
             print('Entrada inválida. Tente novamente.\n')
-            listar(state)
+            listar(lista)
 
 def inptint(desc):
     while True:
@@ -40,12 +40,12 @@ def printmenu():
     print('2 - Devolver veículo \n')
     print('0 - SAIR \n')
 
-def listar(var):
-    if var == 'disp':
+def listar(lista):
+    if lista == disponiveis:
         print('Veículos disponíveis:')
         for i, (veiculo, preco) in enumerate(disponiveis.items(), start = 1):
             print(f'{i} - {veiculo} - R${preco:.2f}/dia')
-    if var == 'loc':
+    if lista == locados:
         if locados:
             print('Veículos locados:')
             for i, veiculo in enumerate(locados, start = 1):
@@ -80,9 +80,8 @@ while True:
 
     match opcao:
         case 1:
-            state = 'disp'
-            listar(state)
-            escolha = inptintvar(len(disponiveis), state)
+            listar(disponiveis)
+            escolha = inptintvar(len(disponiveis), disponiveis)
             os.system("clear")
             if escolha == 0:
                 continue
@@ -90,9 +89,8 @@ while True:
             print(f'{veiculolocado} locado. \n')
             locados[veiculolocado] = disponiveis.pop(veiculolocado)
         case 2:
-            state = 'loc'
-            listar(state)
-            escolha = inptintvar(len(locados), state)
+            listar(locados)
+            escolha = inptintvar(len(locados), locados)
             os.system("clear")
             if escolha == 0:
                 continue

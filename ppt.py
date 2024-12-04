@@ -17,9 +17,9 @@ def inptmenu():
         try:
             inpt = int(input())
             if inpt < 0 or inpt > 3:
-                raise ValueError
+                raise
             return inpt
-        except ValueError:
+        except:
             os.system("clear")
             print('Entrada inválida. Tente novamente.')
             printmenu()
