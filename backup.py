@@ -1,6 +1,6 @@
 import os
 
-def inpintfix():
+def inptintfix():
     while True:
         try:
             inp = int(input())
@@ -12,7 +12,7 @@ def inpintfix():
             print('Entrada inválida. Tente novamente.\n')
             printmenu()
 
-def inpintvar(quant, state):
+def inptintvar(quant, state):
     while True:
         try:
             inp = int(input())
@@ -24,7 +24,7 @@ def inpintvar(quant, state):
             print('Entrada inválida. Tente novamente.\n')
             listar(state)
 
-def inpint(desc):
+def inptint(desc):
     while True:
         try:
             inp = int(input(desc))
@@ -75,14 +75,14 @@ print('Bem vindo à locadora.py! \n')
 
 while True:
     printmenu()
-    opcao = inpintfix()
+    opcao = inptintfix()
     os.system('clear')
 
     match opcao:
         case 1:
             state = 'disp'
             listar(state)
-            escolha = inpintvar(len(disponiveis), state)
+            escolha = inptintvar(len(disponiveis), state)
             os.system("clear")
             if escolha == 0:
                 continue
@@ -92,12 +92,12 @@ while True:
         case 2:
             state = 'loc'
             listar(state)
-            escolha = inpintvar(len(locados), state)
+            escolha = inptintvar(len(locados), state)
             os.system("clear")
             if escolha == 0:
                 continue
             veiculodevolvido = list(locados.keys())[escolha - 1]
-            dias = inpint(f'Digite quantos dias você ficou com o {veiculodevolvido}: ')
+            dias = inptint(f'Digite quantos dias você ficou com o {veiculodevolvido}: ')
             os.system("clear")
             print(f'{veiculodevolvido} devolvido.')
             print(f'Valor em haver: R${locados[veiculodevolvido] * dias:.2f} \n')

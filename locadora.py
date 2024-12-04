@@ -1,36 +1,36 @@
 import os
 
-def inpintfix():
+def inptintfix():
     while True:
         try:
-            inp = int(input())
-            if inp < 0 or inp > 2:
+            inpt = int(input())
+            if inpt < 0 or inpt > 2:
                 raise ValueError
-            return inp
+            return inpt
         except ValueError:
             os.system("clear")
             print('Entrada inválida. Tente novamente.\n')
             printmenu()
 
-def inpintvar(quant, lista):
+def inptintvar(quant, lista):
     while True:
         try:
-            inp = int(input())
-            if inp < 0 or inp > quant:
+            inpt = int(input())
+            if inpt < 0 or inpt > quant:
                 raise ValueError
-            return inp
+            return inpt
         except ValueError:
             os.system("clear")
             print('Entrada inválida. Tente novamente.\n')
             listar(lista)
 
-def inpint(desc):
+def inptint(desc):
     while True:
         try:
-            inp = int(input(desc))
-            if inp < 1:
+            inpt = int(input(desc))
+            if inpt < 1:
                 raise ValueError
-            return inp
+            return inpt
         except ValueError:
             print('Entrada inválida. Tente novamente.')
 
@@ -73,13 +73,13 @@ print('Bem vindo à locadora.py!\n')
 
 while True:
     printmenu()
-    opcao = inpintfix()
+    opcao = inptintfix()
     os.system('clear')
 
     match opcao:
         case 1:
             listar(disponiveis)
-            escolha = inpintvar(len(disponiveis), disponiveis)
+            escolha = inptintvar(len(disponiveis), disponiveis)
             os.system("clear")
             if escolha == 0:
                 continue
@@ -88,12 +88,12 @@ while True:
             locados.append(disponiveis.pop(escolha - 1))
         case 2:
             listar(locados)
-            escolha = inpintvar(len(locados), locados)
+            escolha = inptintvar(len(locados), locados)
             os.system("clear")
             if escolha == 0:
                 continue
             veiculodevolvido = locados[escolha - 1][0]
-            dias = inpint(f'Digite quantos dias você ficou com o {veiculodevolvido}: ')
+            dias = inptint(f'Digite quantos dias você ficou com o {veiculodevolvido}: ')
             os.system("clear")
             print(f'{veiculodevolvido} devolvido.')
             print(f'Valor em haver: R${locados[escolha - 1][1] * dias:.2f}\n')
