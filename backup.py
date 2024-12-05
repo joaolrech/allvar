@@ -42,9 +42,12 @@ def printmenu():
 
 def listar(lista):
     if lista == disponiveis:
-        print('Veículos disponíveis:')
-        for i, (veiculo, preco) in enumerate(disponiveis, start = 1):
-            print(f'{i} - {veiculo} - R${preco:.2f}/dia')
+        if disponiveis:
+            print('Veículos disponíveis:')
+            for i, (veiculo, preco) in enumerate(disponiveis, start = 1):
+                print(f'{i} - {veiculo} - R${preco:.2f}/dia')
+        else:
+            print('Nenhum veículo está disponível.')
     if lista == locados:
         if locados:
             print('Veículos locados:')
