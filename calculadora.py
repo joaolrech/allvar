@@ -32,15 +32,8 @@ def entrada(titulo):
     os.system("clear")
     return x, y
 
-os.system("clear")
-print('Bem vindo à calculadora.py!\n')
-
-while True:
-    printmenu()
-    op = inptmenu()
-    os.system("clear")
-
-    match op:
+def calcular(operacao):
+    match operacao:
         case '+':
             x, y = entrada('SOMA')
             z = x + y
@@ -56,10 +49,21 @@ while True:
                 print('Impossível dividir por 0.\n')
             else:
                 z = x / y
-        case 'X':
-            break
 
     print(f'{x:g} {op} {y:g} = {z:g}\n')
+
+os.system("clear")
+print('Bem vindo à calculadora.py!\n')
+
+while True:
+    printmenu()
+    op = inptmenu()
+    os.system("clear")
+
+    if op == 'X':
+        break
+
+    calcular(op)
 
 os.system("clear")
 print('Programa finalizado.')
