@@ -44,12 +44,14 @@ def listar(lista):
     if lista:
         print('Veículos disponíveis: ' if lista == disponiveis
         else 'Veículos locados: ')
+
         for i, (veiculo, preco) in enumerate(lista, start = 1):
             print(f'{i} - {veiculo} - R${preco:.2f}/dia' if lista == disponiveis
             else f'{i} - {veiculo}')
     else:
         print('Nenhum veículo está disponível.' if lista == disponiveis
         else 'Nenhum veículo está locado.')
+        
     print('\n0 - VOLTAR\n')
 
 def tramit(lista):
