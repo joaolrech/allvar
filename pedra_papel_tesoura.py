@@ -3,9 +3,9 @@ import random
 
 def printplacar():
     print('          PLACAR')
-    print(f'COMPUTADOR: {pointscomp} | USUÁRIO: {pointsus}')
+    print(f'COMPUTADOR: {poinspc} | USUÁRIO: {pointsus}')
 
-def printmenu():
+def printopcoes():
     print('\n1 - Pedra')
     print('2 - Papel')
     print('3 - Tesoura\n')
@@ -22,10 +22,10 @@ def inptjogada():
             os.system("clear")
             print('Entrada inválida. Tente novamente.\n')
             printplacar()
-            printmenu()
+            printopcoes()
 
 def verificar(us, comp):
-    global pointsus, pointscomp
+    global pointsus, poinspc
 
     rules = {
     'Pedra': 'Tesoura',
@@ -37,29 +37,28 @@ def verificar(us, comp):
         pointsus += 1
         return 'uswon'
     elif rules[comp] == us:
-        pointscomp += 1
-        return 'compwon'
+        poinspc += 1
+        return 'pcwon'
     
 jogadas = [
     'Pedra',
     'Papel',
     'Tesoura'
 ]
-pointscomp = 0
+poinspc = 0
 pointsus = 0
 
 os.system("clear")
 
 while True:
     printplacar()
-    printmenu()
+    printopcoes()
 
+    computador = random.choice(jogadas)
     usuario = inptjogada()
     if usuario == 0:
         break
     usuario = jogadas[usuario - 1]
-
-    computador = random.choice(jogadas)
 
     os.system("clear")
     print('Sua jogada:', usuario)
@@ -69,7 +68,7 @@ while True:
 
     if winner == 'uswon':
         print('Você ganhou.\n')
-    elif winner == 'compwon':
+    elif winner == 'pcwon':
         print('Computador ganhou.\n')
     else:
         print('Empate.\n')

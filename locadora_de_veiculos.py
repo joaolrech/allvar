@@ -89,7 +89,7 @@ disponiveis = [
 locados = []
 
 os.system("clear")
-print('Bem vindo à locadora.py!\n')
+print('Bem vindo à locadora de veículos!\n')
 
 while True:
     printmenu()

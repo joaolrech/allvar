@@ -47,10 +47,11 @@ def calcular(operacao):
             x, y = entrada('DIVISÃO')
             if y == 0:
                 print('Impossível dividir por 0.\n')
+                return
             else:
                 z = x / y
 
-    print(f'{x:g} {op} {y:g} = {z:g}\n')
+    print(f'{x:g} {op} {y:g} = {z}\n')
 
 os.system("clear")
 print('Bem vindo à calculadora.py!\n')
