@@ -2,9 +2,8 @@ import os
 import random
 
 def printplacar():
-    print('COMPUTADOR: ', pointscomp, end='')
-    print('        ', end='')
-    print('USUÁRIO: ', pointsus)
+    print('          PLACAR')
+    print(f'COMPUTADOR: {pointscomp} | USUÁRIO: {pointsus}')
 
 def printmenu():
     print('\n1 - Pedra')
@@ -12,18 +11,40 @@ def printmenu():
     print('3 - Tesoura\n')
     print('0 - SAIR\n')
 
-def inptmenu():
+def inptjogada():
     while True:
         try:
             inpt = int(input())
-            if inpt < 0 or inpt > 3:
+            if inpt not in range(len(jogadas) + 1):
                 raise
             return inpt
         except:
             os.system("clear")
-            print('Entrada inválida. Tente novamente.')
+            print('Entrada inválida. Tente novamente.\n')
+            printplacar()
             printmenu()
 
+def verificar(us, comp):
+    global pointsus, pointscomp
+
+    rules = {
+    'Pedra': 'Tesoura',
+    'Papel': 'Pedra',
+    'Tesoura': 'Papel'
+    }
+
+    if rules[us] == comp:
+        pointsus += 1
+        return 'uswon'
+    elif rules[comp] == us:
+        pointscomp += 1
+        return 'compwon'
+    
+jogadas = [
+    'Pedra',
+    'Papel',
+    'Tesoura'
+]
 pointscomp = 0
 pointsus = 0
 
@@ -32,65 +53,26 @@ os.system("clear")
 while True:
     printplacar()
     printmenu()
-    usuario = inptmenu()
-    computador = random.randint(1, 3)
 
-    if usuario == 1:
-        if computador == 1:
-            os.system("clear")
-            print('Sua jogada: Pedra')
-            print('Jogada do computador: Pedra')
-            print('Empate.\n')
-        if computador == 2:
-            os.system("clear")
-            print('Sua jogada: Pedra')
-            print('Jogada do computador: Papel')
-            print('Computador ganhou.\n')
-            pointscomp += 1
-        if computador == 3:
-            os.system("clear")
-            print('Sua jogada: Pedra')
-            print('Jogada do computador: Tesoura')
-            print('Você ganhou.\n')
-            pointsus += 1
-    if usuario == 2:
-        if computador == 1:
-            os.system("clear")
-            print('Sua jogada: Papel')
-            print('Jogada do computador: Pedra')
-            print('Você ganhou.\n')
-            pointsus += 1
-        if computador == 2:
-            os.system("clear")
-            print('Sua jogada: Papel')
-            print('Jogada do computador: Papel')
-            print('Empate.\n')
-        if computador == 3:
-            os.system("clear")
-            print('Sua jogada: Papel')
-            print('Jogada do computador: Tesoura')
-            print('Computador ganhou.\n')
-            pointscomp += 1
-    if usuario == 3:
-        if computador == 1:
-            os.system("clear")
-            print('Sua jogada: Tesoura')
-            print('Jogada do computador: Pedra')
-            print('Computador ganhou.\n')
-            pointscomp += 1
-        if computador == 2:
-            os.system("clear")
-            print('Sua jogada: Tesoura')
-            print('Jogada do computador: Papel')
-            print('Você ganhou.\n')
-            pointsus += 1
-        if computador == 3:
-            os.system("clear")
-            print('Sua jogada: Tesoura')
-            print('Jogada do computador: Tesoura')
-            print('Empate.\n')
+    usuario = inptjogada()
     if usuario == 0:
         break
+    usuario = jogadas[usuario - 1]
+
+    computador = random.choice(jogadas)
+
+    os.system("clear")
+    print('Sua jogada:', usuario)
+    print('Jogada do computador:', computador)
+    
+    winner = verificar(usuario, computador)
+
+    if winner == 'uswon':
+        print('Você ganhou.\n')
+    elif winner == 'compwon':
+        print('Computador ganhou.\n')
+    else:
+        print('Empate.\n')
 
 os.system("clear")
 print('Programa finalizado.')

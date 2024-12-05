@@ -35,7 +35,7 @@ def inptdias(desc):
             print('Entrada inválida. Tente novamente.')
 
 def printmenu():
-    print('Selecione a opção desejada: ')
+    print('Selecione a opção desejada:')
     print('1 - Locar veículo')
     print('2 - Devolver veículo\n')
     print('0 - SAIR\n')
@@ -43,7 +43,7 @@ def printmenu():
 def listar(lista):
     if lista:
         print('Veículos ', end='')
-        print('disponíveis: ' if lista == disponiveis else 'locados: ')
+        print('disponíveis:' if lista == disponiveis else 'locados:')
 
         for i, (veiculo, preco) in enumerate(lista, start = 1):
             if lista == disponiveis:

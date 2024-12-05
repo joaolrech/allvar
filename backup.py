@@ -58,14 +58,14 @@ def listar(lista):
     print('\n0 - VOLTAR \n')
 
 disponiveis = [
-    ('Dolphin', 87.06),
-    ('Han', 405.83),
-    ('King', 124.05),
-    ('Seal', 197.92),
-    ('Shark', 306.42),
-    ('Song', 133.06),
-    ('Tan', 374.14),
-    ('Yuan', 132.2),
+    ['Dolphin', 87.06],
+    ['Han', 405.83],
+    ['King', 124.05],
+    ['Seal', 197.92],
+    ['Shark', 306.42],
+    ['Song', 133.06],
+    ['Tan', 374.14],
+    ['Yuan', 132.2],
 ]
 locados = []
 
