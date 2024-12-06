@@ -1,3 +1,7 @@
+# Nesse programa, nas linhas 73, 77 e 86, o criador do código deixou anotado os possíveis problemas e as futuras melhorias.
+# Implemente as melhorias para solucionar os problemas apontados, utilizando seu conhecimento em funções.
+# Resolva primeiro o desafio 1, e depois o desafio 2.
+
 import os
 
 def inptmenu():
@@ -11,18 +15,6 @@ def inptmenu():
             os.system("clear")
             print('Entrada inválida. Tente novamente.\n')
             printmenu()
-
-def inptcarro(quant, lista):
-    while True:
-        try:
-            inpt = int(input())
-            if inpt < 0 or inpt > quant:
-                raise
-            return inpt
-        except:
-            os.system("clear")
-            print('Entrada inválida. Tente novamente.\n')
-            listar(lista)
 
 def inptdias(desc):
     while True:
@@ -77,11 +69,11 @@ while True:
     opcao = inptmenu()
     os.system('clear')
 
-    # A estrutura do case 1 e 2 é muito parecida e poderia ser simplificada, sendo substituída por uma função
+    # Desafio 2 - A estrutura do case 1 e 2 é muito parecida e poderia ser simplificada
     match opcao:
         case 1:
             listar(disponiveis)
-            escolha = inptcarro(len(disponiveis), disponiveis)
+            escolha = int(input()) # Desafio 1 - A entrada está suscetível a erros
             os.system("clear")
             if escolha == 0:
                 continue
@@ -90,7 +82,7 @@ while True:
             locados.append(disponiveis.pop(escolha - 1))
         case 2:
             listar(locados)
-            escolha = inptcarro(len(locados), locados)
+            escolha = int(input()) # Desafio 1 - A entrada está suscetível a erros
             os.system("clear")
             if escolha == 0:
                 continue
