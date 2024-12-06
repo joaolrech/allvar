@@ -24,13 +24,13 @@ def inptjogada():
             printplacar()
             printopcoes()
 
-def verificar(us, comp):
+def verificar(usuario, computador):
     global placarus, placarpc
     
-    if regras[us] == comp:
+    if regras[usuario] == computador:
         placarus += 1
         print('Você ganhou.\n')
-    elif regras[comp] == us:
+    elif regras[computador] == usuario:
         placarpc += 1
         print('Computador ganhou.\n')
     else:
