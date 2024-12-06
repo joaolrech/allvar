@@ -27,12 +27,6 @@ def inptjogada():
 def verificar(us, comp):
     global placarus, placarpc
     
-    regras = {
-    'Pedra': 'Tesoura',
-    'Papel': 'Pedra',
-    'Tesoura': 'Papel'
-    }
-
     if regras[us] == comp:
         placarus += 1
         print('Você ganhou.\n')
@@ -41,16 +35,22 @@ def verificar(us, comp):
         print('Computador ganhou.\n')
     else:
         print('Empate.\n')
-    
+
 jogadas = [
     'Pedra',
     'Papel',
     'Tesoura'
 ]
+regras = {
+'Pedra': 'Tesoura',
+'Papel': 'Pedra',
+'Tesoura': 'Papel'
+}
 placarpc = 0
 placarus = 0
 
 os.system("clear")
+print('Bem vindo ao jokenpô!\n')
 
 while True:
     printplacar()

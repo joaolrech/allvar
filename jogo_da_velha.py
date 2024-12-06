@@ -33,7 +33,7 @@ def inptjogada():
 situacao = [i + 1 for i in range(9)]
 
 os.system('clear')
-print('Bem vindo ao jogo da velha! \n')
+print('Bem vindo ao jogo da velha!\n')
 us = inptcaracter('Deseja ser X ou O?\n\n')
 if us == 'O':
     pc = 'X'
