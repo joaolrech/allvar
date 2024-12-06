@@ -34,30 +34,7 @@ situacao = [i + 1 for i in range(9)]
 
 os.system('clear')
 print('Bem vindo ao jogo da velha!\n')
-us = inptcaracter('Deseja ser X ou O?\n\n')
-if us == 'O':
-    pc = 'X'
-else:
-    pc = 'O'
-
-inptjogada()
-
-os.system('clear')
-
-
-
-
 
 while True:
-    print(us)
-    print(pc)
-    print(situacao)
-    printjogo(situacao)
+    jogada = inptjogada()
     break
-
-
-
-
-
-
-

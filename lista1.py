@@ -1,4 +1,4 @@
-#1. Utilizando o built-in method input(), crie um programa que receba a altura e opesode uma pessoa eimprima natelao IMC da mesma.
+# 1. Utilizando o built-in method input(), crie um programa que receba a altura e opesode uma pessoa eimprima natelao IMC da mesma.
 
 def q01():
 
@@ -9,7 +9,7 @@ def q01():
 
     print(f'Seu IMC é: {imc:.2f}')
 
-#2. Escreva um programa que pergunte o nome completo do usuário e cumprimente o mesmo pelo primeiro nome.
+# 2. Escreva um programa que pergunte o nome completo do usuário e cumprimente o mesmo pelo primeiro nome.
 
 def q02():
 
@@ -19,7 +19,7 @@ def q02():
 
     print(f'Seja bem vindo, {nome1[0]}!')
 
-#3. Escreva um código que extraia o domínio de um e-mail informado.
+# 3. Escreva um código que extraia o domínio de um e-mail informado.
 
 def q03():
 
@@ -30,9 +30,9 @@ def q03():
 
     print('O domínio do e-mail informado é:', email2[0])
 
-#4. Faça um programa para uma loja de tintas. A pessoa informa a área em m2 que deseja pintar,
-#   e o script calculará a quantidade de latas de tinta que a pessoa deve comprar e o valor.
-#   Considere que cada litro de tinta pinta 3m2, que cada lata contém 18L e que custa R$ 80.
+# 4. Faça um programa para uma loja de tintas. A pessoa informa a área em m2 que deseja pintar,
+#    e o script calculará a quantidade de latas de tinta que a pessoa deve comprar e o valor.
+#    Considere que cada litro de tinta pinta 3m2, que cada lata contém 18L e que custa R$ 80.
 
 def q04():
 
@@ -48,13 +48,13 @@ def q04():
 
     print(f'Você precisará de {latas} latas de tinta, e isso irá custar R${preco:.2f}')
 
-#5. Faça um Programa que pergunte quanto você ganha por hora e o número de horas trabalhadas no mês.
-#   Calcule e mostre o total do seu salário no referido mês, sabendo-se que são descontados 11% para o Imposto de Renda,
-#   8% para o INSS e 5% para o sindicato, faça um programa que nos dê:
-#   • Salário bruto.
-#   • Quanto pagou ao INSS.
-#   • Quanto pagou ao sindicato.
-#   • O salário líquido.
+# 5. Faça um Programa que pergunte quanto você ganha por hora e o número de horas trabalhadas no mês.
+#    Calcule e mostre o total do seu salário no referido mês, sabendo-se que são descontados 11% para o Imposto de Renda,
+#    8% para o INSS e 5% para o sindicato, faça um programa que nos dê:
+#    • Salário bruto.
+#    • Quanto pagou ao INSS.
+#    • Quanto pagou ao sindicato.
+#    • O salário líquido.
 
 def q05():
 

@@ -77,6 +77,7 @@ while True:
     opcao = inptmenu()
     os.system('clear')
 
+    # A estrutura do case 1 e 2 é muito parecida e poderia ser simplificada, sendo substituída por uma função
     match opcao:
         case 1:
             listar(disponiveis)

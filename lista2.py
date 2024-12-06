@@ -1,7 +1,7 @@
-#1. Faça um programa para a leitura de duas notas parciais de um aluno. O programa deve calcular a média alcançada por aluno e apresentar:
-#   • A mensagem "Aprovado", se a média alcançada for maior ou igual a 7;
-#   • A mensagem "Reprovado", se a média for menor do que 7;
-#   • A mensagem "Aprovado com Distinção", se a média for igual a 10.
+# 1. Faça um programa para a leitura de duas notas parciais de um aluno. O programa deve calcular a média alcançada por aluno e apresentar:
+#    • A mensagem "Aprovado", se a média alcançada for maior ou igual a 7;
+#    • A mensagem "Reprovado", se a média for menor do que 7;
+#    • A mensagem "Aprovado com Distinção", se a média for igual a 10.
 
 def q01():
 
@@ -19,7 +19,7 @@ def q01():
     else:
         print('Reprovado.')
 
-#2. Escreva um script que leia três números e mostre o maior e o menor deles.
+# 2. Escreva um script que leia três números e mostre o maior e o menor deles.
 
 def q02():
 
@@ -33,13 +33,13 @@ def q02():
     print('Maior número: ', maior)
     print('Menor número: ', menor)
 
-#3. Nome na vertical em escada.
-#   F
-#   FU
-#   FUL
-#   FULA
-#   FULAN
-#   FULANO
+# 3. Nome na vertical em escada.
+#    F
+#    FU
+#    FUL
+#    FULA
+#    FULAN
+#    FULANO
 
 def q03():
 
@@ -48,9 +48,9 @@ def q03():
     for i in range(len(nome)):
         print(nome[:i + 1])
 
-#4. A série de Fibonacci é formada pela seqüência 1,1,2,3,5,8,13,21,34,55,...
-#   (o próximo termo, a partir do terceiro, é sempre gerado a partir do somatório dos últimos dois).
-#   Faça um programa capaz de gerar a série até o n−ésimo termo (onde o valor n deve ser inserido pelo usuário).
+# 4. A série de Fibonacci é formada pela seqüência 1,1,2,3,5,8,13,21,34,55,...
+#    (o próximo termo, a partir do terceiro, é sempre gerado a partir do somatório dos últimos dois).
+#    Faça um programa capaz de gerar a série até o n−ésimo termo (onde o valor n deve ser inserido pelo usuário).
 
 def q04():
 
@@ -68,12 +68,12 @@ def q04():
         print(z)
         x, y = y, z
 
-#5. Faça um programa que leia e valide as seguintes informações:
-#   • Nome: maior que 3 caracteres;
-#   • Idade: entre 0 e 150;
-#   • Salário: maior que zero;
-#   • Sexo: 'f' ou 'm';
-#   • Estado Civil: 's', 'c', 'v', 'd';
+# 5. Faça um programa que leia e valide as seguintes informações:
+#    • Nome: maior que 3 caracteres;
+#    • Idade: entre 0 e 150;
+#    • Salário: maior que zero;
+#    • Sexo: 'f' ou 'm';
+#    • Estado Civil: 's', 'c', 'v', 'd';
 
 def q05():
 
