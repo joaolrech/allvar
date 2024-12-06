@@ -54,7 +54,7 @@ def calcular(operacao):
     print(f'{x:g} {op} {y:g} = {z}\n')
 
 os.system("clear")
-print('Bem vindo à calculadora.py!\n')
+print('Bem vindo à calculadora!\n')
 
 while True:
     printmenu()

@@ -3,7 +3,7 @@ import random
 
 def printplacar():
     print('          PLACAR')
-    print(f'COMPUTADOR: {poinspc} | USUÁRIO: {pointsus}')
+    print(f'COMPUTADOR: {placarpc} | USUÁRIO: {placarus}')
 
 def printopcoes():
     print('\n1 - Pedra')
@@ -25,28 +25,30 @@ def inptjogada():
             printopcoes()
 
 def verificar(us, comp):
-    global pointsus, poinspc
-
-    rules = {
+    global placarus, placarpc
+    
+    regras = {
     'Pedra': 'Tesoura',
     'Papel': 'Pedra',
     'Tesoura': 'Papel'
     }
 
-    if rules[us] == comp:
-        pointsus += 1
-        return 'uswon'
-    elif rules[comp] == us:
-        poinspc += 1
-        return 'pcwon'
+    if regras[us] == comp:
+        placarus += 1
+        print('Você ganhou.\n')
+    elif regras[comp] == us:
+        placarpc += 1
+        print('Computador ganhou.\n')
+    else:
+        print('Empate.\n')
     
 jogadas = [
     'Pedra',
     'Papel',
     'Tesoura'
 ]
-poinspc = 0
-pointsus = 0
+placarpc = 0
+placarus = 0
 
 os.system("clear")
 
@@ -64,14 +66,7 @@ while True:
     print('Sua jogada:', usuario)
     print('Jogada do computador:', computador)
     
-    winner = verificar(usuario, computador)
-
-    if winner == 'uswon':
-        print('Você ganhou.\n')
-    elif winner == 'pcwon':
-        print('Computador ganhou.\n')
-    else:
-        print('Empate.\n')
+    verificar(usuario, computador)
 
 os.system("clear")
 print('Programa finalizado.')
