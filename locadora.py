@@ -13,7 +13,7 @@ def inptint(desc = '', rang = None, minimo = None, callback = None):
             return inpt
         except ValueError:
             print("Entrada inválida. Tente novamente.")
-            if callback:
+            if callable(callback):
                 os.system("clear")
                 print("Entrada inválida. Tente novamente.\n")
                 callback()
@@ -26,6 +26,7 @@ def printmenu():
 
 def listar(lista):
     if lista:
+        if lista is disponiveis
         print('Veículos ', end='')
         print('disponíveis:' if lista is disponiveis else 'locados:')
 
