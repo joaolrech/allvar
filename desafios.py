@@ -9,9 +9,9 @@ def inptmenu():
         try:
             inpt = int(input())
             if inpt < 0 or inpt > 2:
-                raise
+                raise ValueError
             return inpt
-        except:
+        except ValueError:
             os.system("clear")
             print('Entrada inválida. Tente novamente.\n')
             printmenu()
@@ -21,9 +21,9 @@ def inptdias(desc):
         try:
             inpt = int(input(desc))
             if inpt < 1:
-                raise
+                raise ValueError
             return inpt
-        except:
+        except ValueError:
             print('Entrada inválida. Tente novamente.')
 
 def printmenu():

@@ -24,10 +24,10 @@ def inptjogada():
             print('\n0 - FINALIZAR\n')
             inpt = int(input())
             if inpt < 0 or inpt > 9:
-                raise
+                raise ValueError
             os.system('clear')
             return inpt - 1
-        except:
+        except ValueError:
             os.system("clear")
             print('Entrada inválida. Tente novamente.\n')
 

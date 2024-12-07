@@ -4,7 +4,7 @@ def inptfloat(desc):
     while True:
         try:
             return float(input(desc))
-        except:
+        except ValueError:
             print('Entrada inválida. Tente novamente.')
 
 def inptmenu():

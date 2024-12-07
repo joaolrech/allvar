@@ -15,10 +15,10 @@ def inptjogada():
     while True:
         try:
             inpt = int(input())
-            if inpt not in range(len(jogadas) + 1):
-                raise
+            if inpt not in range(4):
+                raise ValueError
             return inpt
-        except:
+        except ValueError:
             os.system("clear")
             print('Entrada inválida. Tente novamente.\n')
             printplacar()
