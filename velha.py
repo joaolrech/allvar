@@ -6,7 +6,7 @@ def inptcaracter(desc):
         inpt = input(desc).upper()
         if inpt not in ['X', 'O']:
             os.system("clear")
-            print('Entrada inválida. Tente novamente\n')
+            print('Entrada inválida. Tente novamente.\n')
         else:
             os.system('clear')
             return inpt

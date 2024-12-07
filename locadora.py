@@ -1,6 +1,6 @@
 import os
 
-def inptint(desc, rang, minimo):
+def inptint(desc = '', rang = None, minimo = None, callback = None):
     while True:
         try:
             inpt = int(input(desc))
@@ -13,6 +13,10 @@ def inptint(desc, rang, minimo):
             return inpt
         except ValueError:
             print("Entrada inválida. Tente novamente.")
+            if callback:
+                os.system("clear")
+                print("Entrada inválida. Tente novamente.\n")
+                callback()
 
 def printmenu():
     print('Selecione a opção desejada:')
@@ -26,7 +30,7 @@ def listar(lista):
         print('disponíveis:' if lista is disponiveis else 'locados:')
 
         for i, (veiculo, preco) in enumerate(lista, start = 1):
-            if lista == disponiveis:
+            if lista is disponiveis:
                 print(f'{i} - {veiculo} - R${preco:.2f}/dia')
             else:
                 print(f'{i} - {veiculo}')
@@ -38,7 +42,7 @@ def listar(lista):
 
 def tramit(lista):
     listar(lista)
-    escolha = inptint('', range(len(lista) + 1), None)
+    escolha = inptint(rang = range(len(lista) + 1), callback = lambda: listar(lista))
     os.system("clear")
 
     if escolha == 0:
@@ -46,11 +50,11 @@ def tramit(lista):
 
     escolhido = lista[escolha - 1][0]
 
-    if lista == disponiveis:
+    if lista is disponiveis:
         print(f'{escolhido} locado.\n')
         locados.append(disponiveis.pop(escolha - 1))
     else:
-        dias = inptint(f'Digite quantos dias você ficou com o {escolhido}: ', None, 1)
+        dias = inptint(desc = f'Digite quantos dias você ficou com o {escolhido}: ', minimo = 1)
         os.system("clear")
         print(f'{escolhido} devolvido.')
         print(f'Valor em haver: R${locados[escolha - 1][1] * dias:.2f}\n')
@@ -73,7 +77,7 @@ print('Bem vindo à locadora de veículos!\n')
 
 while True:
     printmenu()
-    opcao = inptint('', range(3), None)
+    opcao = inptint(rang = range(3), callback = lambda: printmenu())
     os.system('clear')
 
     if opcao == 0:
