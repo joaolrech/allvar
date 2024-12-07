@@ -1,4 +1,5 @@
-# 1. Faça um programa para a leitura de duas notas parciais de um aluno. O programa deve calcular a média alcançada por aluno e apresentar:
+# 1. Faça um programa para a leitura de duas notas parciais de um aluno. O programa
+#    deve calcular a média alcançada por aluno e apresentar:
 #    • A mensagem "Aprovado", se a média alcançada for maior ou igual a 7;
 #    • A mensagem "Reprovado", se a média for menor do que 7;
 #    • A mensagem "Aprovado com Distinção", se a média for igual a 10.
@@ -50,7 +51,8 @@ def q03():
 
 # 4. A série de Fibonacci é formada pela seqüência 1,1,2,3,5,8,13,21,34,55,...
 #    (o próximo termo, a partir do terceiro, é sempre gerado a partir do somatório dos últimos dois).
-#    Faça um programa capaz de gerar a série até o n−ésimo termo (onde o valor n deve ser inserido pelo usuário).
+#    Faça um programa capaz de gerar a série até o n−ésimo termo
+#    (onde o valor n deve ser inserido pelo usuário).
 
 def q04():
 
@@ -103,8 +105,8 @@ def q05():
     print('Estado civil validado.')
 
 # 6. Faça um programa que peça um número inteiro e determine se ele é ou não um número primo.
-#    Um número primo é aquele que é divisível somente por ele mesmo e por 1. Dica: Utilize o operador aritmético %,
-#    que retorna o resto da divisão de dois números.
+#    Um número primo é aquele que é divisível somente por ele mesmo e por 1.
+#    Dica: Utilize o operador aritmético %, que retorna o resto da divisão de dois números.
 
 def q06():
 

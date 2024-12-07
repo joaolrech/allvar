@@ -1,4 +1,5 @@
-# 1. Utilizando o built-in method input(), crie um programa que receba a altura e opesode uma pessoa eimprima natelao IMC da mesma.
+# 1. Utilizando o built-in method input(), crie um programa que receba a altura e o peso
+#    de uma pessoa e imprima natelao IMC da mesma.
 
 def q01():
 
@@ -49,8 +50,8 @@ def q04():
     print(f'Você precisará de {latas} latas de tinta, e isso irá custar R${preco:.2f}')
 
 # 5. Faça um Programa que pergunte quanto você ganha por hora e o número de horas trabalhadas no mês.
-#    Calcule e mostre o total do seu salário no referido mês, sabendo-se que são descontados 11% para o Imposto de Renda,
-#    8% para o INSS e 5% para o sindicato, faça um programa que nos dê:
+#    Calcule e mostre o total do seu salário no referido mês, sabendo-se que são descontados 11% para o
+#    Imposto de Renda, 8% para o INSS e 5% para o sindicato, faça um programa que nos dê:
 #    • Salário bruto.
 #    • Quanto pagou ao INSS.
 #    • Quanto pagou ao sindicato.
