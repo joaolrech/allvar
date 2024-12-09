@@ -1,108 +1,104 @@
 import os
 import random
 
-def inptcaracter(desc):
-    while True:
-        inpt = input(desc).upper()
-        if inpt not in ['X', 'O']:
-            os.system("clear")
-            print('Entrada inválida. Tente novamente.\n')
+class Velha():
+    def __init__(self):
+        self.jogo = [i + 1 for i in range(9)]
+
+    def printjogo(self):
+        print(f'{self.jogo[6]} {self.jogo[7]} {self.jogo[8]}')
+        print(f'{self.jogo[3]} {self.jogo[4]} {self.jogo[5]}')
+        print(f'{self.jogo[0]} {self.jogo[1]} {self.jogo[2]}')
+
+    def verificavencedor(self):
+        if (self.jogo[0] == self.jogo[1] == self.jogo[2] or
+        self.jogo[3] == self.jogo[4] == self.jogo[5] or
+        self.jogo[6] == self.jogo[7] == self.jogo[8] or
+        self.jogo[0] == self.jogo[3] == self.jogo[6] or
+        self.jogo[1] == self.jogo[4] == self.jogo[7] or
+        self.jogo[2] == self.jogo[5] == self.jogo[8] or
+        self.jogo[2] == self.jogo[4] == self.jogo[6] or
+        self.jogo[0] == self.jogo[4] == self.jogo[8]):
+            return True
         else:
-            os.system('clear')
-            return inpt
+            return False
 
-def printjogo(x):
-    print(f'{x[6]} {x[7]} {x[8]}')
-    print(f'{x[3]} {x[4]} {x[5]}')
-    print(f'{x[0]} {x[1]} {x[2]}')
+    def geradordejogada(self):
+        while True:
+            jogada = random.randint(0, 8)
+            if type(self.jogo[jogada]) != int:
+                continue
+            return jogada
 
-def inptjogada():
-    while True:
-        try:
-            print('Selecione a posição em que deseja jogar.\n')
-            printjogo(situacao)
-            print('\n0 - FINALIZAR\n')
-            inpt = int(input())
-            if inpt < 0 or inpt > 9:
-                raise ValueError
-            os.system("clear")
-            return inpt - 1
-        except ValueError:
-            os.system("clear")
-            print('Entrada inválida. Tente novamente.\n')
+    def verificajogada(self):
+        while True:
+            jogada = self.inptjogada()
+            if type(self.jogo[jogada]) != int:
+                os.system("clear")
+                print('Posição inválida. Tente novamente.\n')
+                continue
+            return jogada
 
-def geradordejogada(situacao):
-    while True:
-        jogada = random.randint(0, 8)
-        if type(situacao[jogada]) != int:
-            continue
-        return jogada
+    def inptjogada(self):
+        while True:
+            try:
+                print('Selecione a posição em que deseja jogar.\n')
+                self.printjogo()
+                print('\n0 - FINALIZAR\n')
+                inpt = int(input())
+                if inpt < 0 or inpt > 9:
+                    raise ValueError
+                os.system("clear")
+                return inpt - 1
+            except ValueError:
+                os.system("clear")
+                print('Entrada inválida. Tente novamente.\n')
 
-def verificajogada(situacao):
-    while True:
-        jogada = inptjogada()
-        if type(situacao[jogada]) != int:
-            os.system("clear")
-            print('Posição inválida. Tente novamente.\n')
-            continue
-        return jogada
-            
-def verificavencedor(x):
-    if x[0] == x[1] == x[2]:
-        return True
-    elif x[3] == x[4] == x[5]:
-        return True
-    elif x[6] == x[7] == x[8]:
-        return True
-    elif x[0] == x[3] == x[6]:
-        return True
-    elif x[1] == x[4] == x[7]:
-        return True
-    elif x[2] == x[5] == x[8]:
-        return True
-    elif x[2] == x[4] == x[6]:
-        return True
-    elif x[0] == x[4] == x[8]:
-        return True
-    else:
-        return False
+    def inptcaracter(self, desc):
+        while True:
+            inpt = input(desc).upper()
+            if inpt not in ['X', 'O']:
+                os.system("clear")
+                print('Entrada inválida. Tente novamente.\n')
+            else:
+                os.system('clear')
+                return inpt
 
-situacao = [i + 1 for i in range(9)]
+    def jogar(self):
+        os.system('clear')
+        print('Bem vindo ao jogo da velha!\n')
 
-os.system('clear')
-print('Bem vindo ao jogo da velha!\n')
+        usuario = self.inptcaracter('Deseja ser X ou O?\n\n')
+        computador = 'O' if usuario == 'X' else 'X'
 
-usuario = inptcaracter('Deseja ser X ou O?\n\n')
-if usuario == 'X':
-    computador = 'O'
-else:
-    computador = 'X'
+        while True:
+            jogadaus = self.verificajogada()
+            if jogadaus == -1:
+                break
+            self.jogo[jogadaus] = usuario
+            ganhou = self.verificavencedor()
+            if ganhou:
+                self.printjogo()
+                print('\nVocê ganhou.\n')
+                break
+            if all(type(pos) != int for pos in self.jogo):
+                self.printjogo()
+                print('\nEmpate.\n')
+                break
 
-while True:
-    jogadaus = verificajogada(situacao)
-    if jogadaus == -1:
-        break
-    situacao[jogadaus] = usuario
-    ganhou = verificavencedor(situacao)
-    if ganhou:
-        printjogo(situacao)
-        print('\nVocê ganhou.\n')
-        break
-    if all(type(pos) != int for pos in situacao):
-        print('\nEmpate.\n')
-        break
+            jogadapc = self.geradordejogada()
+            self.jogo[jogadapc] = computador
+            ganhou = self.verificavencedor()
+            if ganhou:
+                self.printjogo()
+                print('\nComputador ganhou.\n')
+                break
+            if all(type(pos) != int for pos in self.jogo):
+                self.printjogo()
+                print('\nEmpate.\n')
+                break
 
-    jogadapc = geradordejogada(situacao)
-    situacao[jogadapc] = computador
-    ganhou = verificavencedor(situacao)
-    if ganhou:
-        printjogo(situacao)
-        print('\nComputador ganhou.\n')
-        break
-        
-    if all(type(pos) != int for pos in situacao):
-        printjogo(situacao)
-        print('\nEmpate.\n')
-        break
+        print('Programa finalizado.')
 
-print('Programa finalizado.')
+velha = Velha()
+velha.jogar()

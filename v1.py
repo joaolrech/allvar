@@ -23,9 +23,7 @@ def inptjogada():
             printjogo(situacao)
             print('\n0 - FINALIZAR\n')
             inpt = int(input())
-            if inpt == 0:
-                return -1  # Permite ao jogador finalizar o jogo
-            if inpt < 1 or inpt > 9:
+            if inpt < 0 or inpt > 9:
                 raise ValueError
             os.system("clear")
             return inpt - 1
@@ -34,22 +32,21 @@ def inptjogada():
             print('Entrada inválida. Tente novamente.\n')
 
 def geradordejogada(situacao):
-    posicoes_vazias = [i for i, pos in enumerate(situacao) if type(pos) == int]
-    if posicoes_vazias:
-        return random.choice(posicoes_vazias)
-    return -1  # Caso não haja posições vazias, o jogo acabou
+    while True:
+        jogada = random.randint(0, 8)
+        if type(situacao[jogada]) != int:
+            continue
+        return jogada
 
 def verificajogada(situacao):
     while True:
         jogada = inptjogada()
-        if jogada == -1:  # Verifica se o jogador deseja sair
-            return jogada
         if type(situacao[jogada]) != int:
             os.system("clear")
             print('Posição inválida. Tente novamente.\n')
             continue
         return jogada
-
+            
 def verificavencedor(x):
     if x[0] == x[1] == x[2]:
         return True
@@ -70,25 +67,17 @@ def verificavencedor(x):
     else:
         return False
 
-def verificar_empate(situacao):
-    # Verifica se todas as posições estão preenchidas com caracteres (X ou O)
-    return all(isinstance(pos, str) for pos in situacao)
-
 situacao = [i + 1 for i in range(9)]
 
 os.system('clear')
-print('Bem-vindo ao jogo da velha!\n')
+print('Bem vindo ao jogo da velha!\n')
 
 usuario = inptcaracter('Deseja ser X ou O?\n\n')
-if usuario == 'X':
-    computador = 'O'
-else:
-    computador = 'X'
+computador = 'O' if usuario == 'X' else 'X'
 
 while True:
     jogadaus = verificajogada(situacao)
-    if jogadaus == -1:  # Jogador escolheu finalizar
-        print('Programa finalizado.')
+    if jogadaus == -1:
         break
     situacao[jogadaus] = usuario
     ganhou = verificavencedor(situacao)
@@ -96,22 +85,21 @@ while True:
         printjogo(situacao)
         print('\nVocê ganhou.\n')
         break
+    if all(type(pos) != int for pos in situacao):
+        printjogo(situacao)
+        print('\nEmpate.\n')
+        break
 
     jogadapc = geradordejogada(situacao)
-    if jogadapc == -1:  # Caso o computador não tenha jogadas válidas
-        printjogo(situacao)
-        print('\nO jogo terminou em empate.\n')
-        break
     situacao[jogadapc] = computador
     ganhou = verificavencedor(situacao)
     if ganhou:
         printjogo(situacao)
         print('\nComputador ganhou.\n')
         break
-
-    if verificar_empate(situacao):
+    if all(type(pos) != int for pos in situacao):
         printjogo(situacao)
-        print('\nO jogo terminou em empate.\n')
+        print('\nEmpate.\n')
         break
 
 print('Programa finalizado.')
