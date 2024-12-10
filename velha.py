@@ -133,9 +133,9 @@ class Velha():
                 print('Entrada inválida. Tente novamente.\n')
 
     def jogar(self, jogador):
-        if jogador == self.usuario:
+        if jogador is self.usuario:
             jogada = self.verificajogada()
-        if jogador == self.computador:
+        if jogador is self.computador:
             jogada = self.geradordejogada()
             
         self.jogo[jogada] = jogador
@@ -143,9 +143,9 @@ class Velha():
         ganhou = self.verificavencedor()
         if ganhou:
             self.printjogo()
-            if jogador == self.usuario:
+            if jogador is self.usuario:
                 print('Você ganhou!\n')
-            if jogador == self.computador:
+            if jogador is self.computador:
                 print('Computador ganhou!\n') 
             return True
         
