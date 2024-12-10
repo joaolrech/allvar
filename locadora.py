@@ -1,28 +1,44 @@
 import os
 
-def inptint(desc = '', rang = None, minimo = None, callback = None):
+def inptescolha(quant, lista):
+    while True:
+        try:
+            inpt = int(input())
+            if inpt < 0 or inpt > quant:
+                raise ValueError
+            return inpt
+        except ValueError:
+            os.system("clear")
+            print('Entrada inválida. Tente novamente.\n')
+            listar(lista)
+
+def inptmenu():
+    while True:
+        try:
+            inpt = int(input())
+            if inpt < 0 or inpt > 2:
+                raise ValueError
+            return inpt
+        except ValueError:
+            os.system("clear")
+            print('Entrada inválida. Tente novamente.\n')
+            printmenu()
+
+def inptdias(desc):
     while True:
         try:
             inpt = int(input(desc))
-            if rang:
-                if inpt not in rang:
-                    raise ValueError
-            if minimo:
-                if inpt < minimo:
-                    raise ValueError
+            if inpt < 1:
+                raise ValueError
             return inpt
         except ValueError:
-            print("Entrada inválida. Tente novamente.")
-            if callable(callback):
-                os.system("clear")
-                print("Entrada inválida. Tente novamente.\n")
-                callback()
+            print('Entrada inválida. Tente novamente.')
 
 def printmenu():
-    print('Selecione a opção desejada:')
+    print('Selecione a opção desejada: ')
     print('1 - Locar veículo')
-    print('2 - Devolver veículo\n')
-    print('0 - SAIR\n')
+    print('2 - Devolver veículo \n')
+    print('0 - SAIR \n')
 
 def listar(lista):
     if lista:
@@ -42,7 +58,7 @@ def listar(lista):
 
 def tramit(lista):
     listar(lista)
-    escolha = inptint(rang = range(len(lista) + 1), callback = lambda: listar(lista))
+    escolha = inptescolha(len(lista), lista)
     os.system("clear")
 
     if escolha == 0:
@@ -54,7 +70,7 @@ def tramit(lista):
         print(f'{escolhido} locado.\n')
         locados.append(disponiveis.pop(escolha - 1))
     else:
-        dias = inptint(desc = f'Digite quantos dias você ficou com o {escolhido}: ', minimo = 1)
+        dias = inptdias(f'Digite quantos dias você ficou com o {escolhido}: ')
         os.system("clear")
         print(f'{escolhido} devolvido.')
         print(f'Valor em haver: R${locados[escolha - 1][1] * dias:.2f}\n')
@@ -77,7 +93,7 @@ print('Bem vindo à locadora de veículos!\n')
 
 while True:
     printmenu()
-    opcao = inptint(rang = range(3), callback = lambda: printmenu())
+    opcao = inptmenu()
     os.system('clear')
 
     if opcao == 0:
