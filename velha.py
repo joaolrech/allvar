@@ -5,6 +5,26 @@ class Velha():
     def __init__(self):
         self.jogo = [i + 1 for i in range(9)]
 
+        os.system('clear')
+        print('Bem vindo ao jogo da velha!\n')
+        
+        self.usuario = self.inptcaracter('Deseja ser X ou O?\n\n')
+        self.computador = 'O' if self.usuario == 'X' else 'X'
+        
+        comeca = self.inptcomeca()
+        if comeca == 1:
+            while True:
+                if self.jogadorjoga(self.usuario):
+                    break
+                if self.jogadorjoga(self.computador):
+                    break
+        if comeca == 2:
+            while True:
+                if self.jogadorjoga(self.computador):
+                    break
+                if self.jogadorjoga(self.usuario):
+                    break
+
     def printjogo(self):
         print(f'{self.jogo[6]} {self.jogo[7]} {self.jogo[8]}')
         print(f'{self.jogo[3]} {self.jogo[4]} {self.jogo[5]}')
@@ -78,55 +98,26 @@ class Velha():
                 os.system("clear")
                 print('Entrada inválida. Tente novamente.\n')
 
-    def usjoga(self, usuario):
-        jogadaus = self.verificajogada()
-        self.jogo[jogadaus] = usuario
+    def jogadorjoga(self, jogador):
+        if jogador == self.usuario:
+            jogada = self.verificajogada()
+        if jogador == self.computador:
+            jogada = self.geradordejogada()
+        self.jogo[jogada] = jogador
         ganhou = self.verificavencedor()
         if ganhou:
             self.printjogo()
-            print('Você ganhou.\n')
+            if jogador == self.usuario:
+                print('Você ganhou.\n')
+            if jogador == self.computador:
+                print('Computador ganhou.\n') 
             return True
         if all(type(pos) != int for pos in self.jogo):
             self.printjogo()
             print('Empate.\n')
             return True
         return False
-
-    def pcjoga(self, computador):
-        jogadapc = self.geradordejogada()
-        self.jogo[jogadapc] = computador
-        ganhou = self.verificavencedor()
-        if ganhou:
-            self.printjogo()
-            print('Computador ganhou.\n')
-            return True
-        if all(type(pos) != int for pos in self.jogo):
-            self.printjogo()
-            print('Empate.\n')
-            return True
-        return False
-
-    def jogar(self):
-        os.system('clear')
-        print('Bem vindo ao jogo da velha!\n')
-
-        usuario = self.inptcaracter('Deseja ser X ou O?\n\n')
-        computador = 'O' if usuario == 'X' else 'X'
-
-        comeca = self.inptcomeca()
-        if comeca == 1:
-            while True:
-                if self.usjoga(usuario):
-                    break
-                if self.pcjoga(computador):
-                    break
-        else:
-            while True:
-                if self.pcjoga(computador):
-                    break
-                if self.usjoga(usuario):
-                    break
 
 velha = Velha()
-velha.jogar()
+
 print('Programa finalizado.')
