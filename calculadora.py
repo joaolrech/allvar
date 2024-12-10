@@ -63,7 +63,7 @@ while True:
 
     if op == 'X':
         break
-
+        
     calcular(op)
 
 os.system("clear")

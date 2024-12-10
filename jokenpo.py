@@ -65,7 +65,7 @@ while True:
     os.system("clear")
     print('Sua jogada:', usuario)
     print('Jogada do computador:', computador)
-    
+
     verificar(usuario, computador)
 
 os.system("clear")
