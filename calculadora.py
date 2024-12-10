@@ -10,7 +10,7 @@ def inptfloat(desc):
 def inptmenu():
     while True:
         inpt = input().upper()
-        if inpt not in ['+', '-', '*', '/', 'X']:
+        if inpt not in ['+', '-', '*', '/', '^', 'X']:
             os.system("clear")
             print('Entrada inválida. Tente novamente\n')
             printmenu()
@@ -22,7 +22,8 @@ def printmenu():
     print('+ Adição')
     print('- Subtração')
     print('* Multiplicação')
-    print('/ Divisão\n')
+    print('/ Divisão')
+    print('^ Exponenciação\n')
     print('X SAIR\n')
 
 def entrada(titulo):
@@ -50,8 +51,11 @@ def calcular(operacao):
                 return
             else:
                 z = x / y
+        case '^':
+            x, y = entrada('EXPONENCIAÇÃO')
+            z = x ** y
 
-    print(f'{x:g} {op} {y:g} = {z}\n')
+    print(f'{x:g} {op} {y:g} = {z:g}\n')
 
 os.system("clear")
 print('Bem vindo à calculadora!\n')

@@ -68,7 +68,7 @@ while True:
     printmenu()
     opcao = inptmenu()
     os.system('clear')
-
+    
     # Desafio 2 - A estrutura do case 1 e 2 é muito parecida e poderia ser simplificada
     match opcao:
         case 1:
