@@ -30,7 +30,7 @@ class Velha():
             if novamente == 2:
                 break
      
-        print('Obrigado por jogar!\n')
+        print('Obrigado por jogar!')
 
     def printjogo(self):
         print(f'{self.jogo[6]} {self.jogo[7]} {self.jogo[8]}')

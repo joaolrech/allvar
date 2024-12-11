@@ -94,6 +94,3 @@ while True:
             disponiveis.append(locados.pop(escolha - 1))
         case 0:
             break
-
-os.system("clear")
-print('Programa finalizado.')

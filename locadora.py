@@ -100,6 +100,3 @@ while True:
         break
 
     tramit(disponiveis if opcao == 1 else locados)
-
-os.system("clear")
-print('Programa finalizado.')

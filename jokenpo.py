@@ -29,12 +29,12 @@ def verificar(usuario, computador):
     
     if regras[usuario] == computador:
         placarus += 1
-        print('Você ganhou.\n')
+        print('Você ganhou!\n')
     elif regras[computador] == usuario:
         placarpc += 1
-        print('Computador ganhou.\n')
+        print('Computador ganhou!\n')
     else:
-        print('Empate.\n')
+        print('Empate!\n')
 
 jogadas = [
     'Pedra',
@@ -69,4 +69,4 @@ while True:
     verificar(usuario, computador)
 
 os.system("clear")
-print('Programa finalizado.')
+print('Obrigado por jogar!')

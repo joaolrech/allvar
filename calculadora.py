@@ -69,6 +69,3 @@ while True:
         break
         
     calcular(op)
-
-os.system("clear")
-print('Programa finalizado.')
