@@ -19,7 +19,7 @@ def inptjogada():
                 raise ValueError
             return inpt
         except ValueError:
-            os.system("clear")
+            os.system('clear')
             print('Entrada inválida. Tente novamente.\n')
             printplacar()
             printopcoes()
@@ -49,7 +49,7 @@ regras = {
 placarpc = 0
 placarus = 0
 
-os.system("clear")
+os.system('clear')
 print('Bem vindo ao jokenpô!\n')
 
 while True:
@@ -62,11 +62,11 @@ while True:
         break
     usuario = jogadas[usuario - 1]
 
-    os.system("clear")
+    os.system('clear')
     print('Sua jogada:', usuario)
     print('Jogada do computador:', computador)
 
     verificar(usuario, computador)
 
-os.system("clear")
+os.system('clear')
 print('Obrigado por jogar!')

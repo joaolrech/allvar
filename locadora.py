@@ -8,21 +8,24 @@ def inptescolha(quant, lista):
                 raise ValueError
             return inpt
         except ValueError:
-            os.system("clear")
+            os.system('clear')
             print('Entrada inválida. Tente novamente.\n')
             listar(lista)
 
 def inptmenu():
     while True:
         try:
+            print('Selecione a opção desejada: ')
+            print('1 - Locar veículo')
+            print('2 - Devolver veículo \n')
+            print('0 - SAIR \n')
             inpt = int(input())
             if inpt < 0 or inpt > 2:
                 raise ValueError
             return inpt
         except ValueError:
-            os.system("clear")
+            os.system('clear')
             print('Entrada inválida. Tente novamente.\n')
-            printmenu()
 
 def inptdias(desc):
     while True:
@@ -33,12 +36,6 @@ def inptdias(desc):
             return inpt
         except ValueError:
             print('Entrada inválida. Tente novamente.')
-
-def printmenu():
-    print('Selecione a opção desejada: ')
-    print('1 - Locar veículo')
-    print('2 - Devolver veículo \n')
-    print('0 - SAIR \n')
 
 def listar(lista):
     if lista:
@@ -59,7 +56,7 @@ def listar(lista):
 def tramit(lista):
     listar(lista)
     escolha = inptescolha(len(lista), lista)
-    os.system("clear")
+    os.system('clear')
 
     if escolha == 0:
         return
@@ -71,7 +68,7 @@ def tramit(lista):
         locados.append(disponiveis.pop(escolha - 1))
     else:
         dias = inptdias(f'Digite quantos dias você ficou com o {escolhido}: ')
-        os.system("clear")
+        os.system('clear')
         print(f'{escolhido} devolvido.')
         print(f'Valor em haver: R${locados[escolha - 1][1] * dias:.2f}\n')
         disponiveis.append(locados.pop(escolha - 1))
@@ -88,11 +85,10 @@ disponiveis = [
 ]
 locados = []
 
-os.system("clear")
+os.system('clear')
 print('Bem vindo à locadora de veículos!\n')
 
 while True:
-    printmenu()
     opcao = inptmenu()
     os.system('clear')
 

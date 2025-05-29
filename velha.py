@@ -59,7 +59,7 @@ class Velha():
             jogada = self.inptjogada()
             
             if type(self.jogo[jogada]) != int:
-                os.system("clear")
+                os.system('clear')
                 print('Posição inválida. Tente novamente.\n')
                 continue
             
@@ -76,11 +76,11 @@ class Velha():
                 if inpt < 1 or inpt > 9:
                     raise ValueError
                     
-                os.system("clear")
+                os.system('clear')
                 return inpt - 1
                 
             except ValueError:
-                os.system("clear")
+                os.system('clear')
                 print('Entrada inválida. Tente novamente.\n')
 
     def inptcaracter(self, desc):
@@ -88,7 +88,7 @@ class Velha():
             inpt = input(desc).upper()
             
             if inpt not in ['X', 'O']:
-                os.system("clear")
+                os.system('clear')
                 print('Entrada inválida. Tente novamente.\n')
             else:
                 os.system('clear')
@@ -106,11 +106,11 @@ class Velha():
                 if inpt < 1 or inpt > 2:
                     raise ValueError
                     
-                os.system("clear")
+                os.system('clear')
                 return inpt
                 
             except ValueError:
-                os.system("clear")
+                os.system('clear')
                 print('Entrada inválida. Tente novamente.\n')
  
     def inptnovamente(self):
@@ -125,11 +125,11 @@ class Velha():
                 if inpt < 1 or inpt > 2:
                     raise ValueError
                     
-                os.system("clear")
+                os.system('clear')
                 return inpt
                 
             except ValueError:
-                os.system("clear")
+                os.system('clear')
                 print('Entrada inválida. Tente novamente.\n')
 
     def jogar(self, jogador):

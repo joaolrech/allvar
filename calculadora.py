@@ -9,28 +9,25 @@ def inptfloat(desc):
 
 def inptmenu():
     while True:
+        print('Selecione a operação desejada:')
+        print('+ Adição')
+        print('- Subtração')
+        print('* Multiplicação')
+        print('/ Divisão')
+        print('^ Exponenciação\n')
+        print('X SAIR\n')
         inpt = input().upper()
         if inpt not in ['+', '-', '*', '/', '^', 'X']:
-            os.system("clear")
+            os.system('clear')
             print('Entrada inválida. Tente novamente\n')
-            printmenu()
         else:
             return inpt
-
-def printmenu():
-    print('Selecione a operação desejada:')
-    print('+ Adição')
-    print('- Subtração')
-    print('* Multiplicação')
-    print('/ Divisão')
-    print('^ Exponenciação\n')
-    print('X SAIR\n')
 
 def entrada(titulo):
     print(f'{titulo}\n')
     x = inptfloat('Digite o 1º termo da operação: ')
     y = inptfloat('Digite o 2º termo da operação: ')
-    os.system("clear")
+    os.system('clear')
     return x, y
 
 def calcular(operacao):
@@ -57,13 +54,12 @@ def calcular(operacao):
 
     print(f'{x:g} {op} {y:g} = {z:g}\n')
 
-os.system("clear")
+os.system('clear')
 print('Bem vindo à calculadora!\n')
 
 while True:
-    printmenu()
     op = inptmenu()
-    os.system("clear")
+    os.system('clear')
 
     if op == 'X':
         break
