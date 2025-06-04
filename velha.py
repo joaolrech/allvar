@@ -29,8 +29,6 @@ class Velha():
             novamente = self.inptnovamente()
             if novamente == 2:
                 break
-     
-        print('Obrigado por jogar!')
 
     def printjogo(self):
         print(f'{self.jogo[6]} {self.jogo[7]} {self.jogo[8]}')

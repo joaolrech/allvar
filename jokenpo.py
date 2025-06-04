@@ -1,19 +1,16 @@
 import os
 import random
 
-def printplacar():
-    print('          PLACAR')
-    print(f'COMPUTADOR: {placarpc} | USUÁRIO: {placarus}')
-
-def printopcoes():
-    print('\n1 - Pedra')
-    print('2 - Papel')
-    print('3 - Tesoura\n')
-    print('0 - SAIR\n')
-
 def inptjogada():
     while True:
         try:
+            print('          PLACAR')
+            print(f'COMPUTADOR: {placarpc} | USUÁRIO: {placarus}')
+
+            print('\n1 - Pedra')
+            print('2 - Papel')
+            print('3 - Tesoura\n')
+            print('0 - SAIR\n')
             inpt = int(input())
             if inpt not in range(4):
                 raise ValueError
@@ -21,8 +18,6 @@ def inptjogada():
         except ValueError:
             os.system('clear')
             print('Entrada inválida. Tente novamente.\n')
-            printplacar()
-            printopcoes()
 
 def verificar(usuario, computador):
     global placarus, placarpc
@@ -53,9 +48,6 @@ os.system('clear')
 print('Bem vindo ao jokenpô!\n')
 
 while True:
-    printplacar()
-    printopcoes()
-
     computador = random.choice(jogadas)
     usuario = inptjogada()
     if usuario == 0:
@@ -69,4 +61,3 @@ while True:
     verificar(usuario, computador)
 
 os.system('clear')
-print('Obrigado por jogar!')
