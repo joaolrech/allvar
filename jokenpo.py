@@ -5,7 +5,7 @@ def inptJogada():
     while True:
         try:
             print('          PLACAR')
-            print(f'COMPUTADOR: {placarpc} | USUÁRIO: {placarus}')
+            print(f'COMPUTADOR: {placarComputador} | USUÁRIO: {placarUsuario}')
 
             print('\n1 - Pedra')
             print('2 - Papel')
@@ -20,13 +20,13 @@ def inptJogada():
             print('Entrada inválida. Tente novamente.\n')
 
 def verificar(usuario, computador):
-    global placarus, placarpc
+    global placarUsuario, placarComputador
     
     if regras[usuario] == computador:
-        placarus += 1
+        placarUsuario += 1
         print('Você ganhou!\n')
     elif regras[computador] == usuario:
-        placarpc += 1
+        placarComputador += 1
         print('Computador ganhou!\n')
     else:
         print('Empate!\n')
@@ -41,8 +41,8 @@ regras = {
 'Papel': 'Pedra',
 'Tesoura': 'Papel'
 }
-placarpc = 0
-placarus = 0
+placarComputador = 0
+placarUsuario = 0
 
 os.system('clear')
 print('Bem vindo ao jokenpô!\n')
