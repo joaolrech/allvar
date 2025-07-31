@@ -112,20 +112,14 @@ def q06():
 
     num = int(input('Digite um número inteiro: '))
 
-    primo = True
-
-    if num <= 1:
-        primo = False
+    primo = bool(num > 1)
 
     for i in range(2, int(num ** 0.5)):
         if num % i == 0:
             primo = False
             break
 
-    if primo:
-        print('O número digitado é primo.')
-    else:
-        print('O número digitado não é primo.')
+    print(f"O número digitado {'é' if primo else 'não é'} primo.")
 
 questao = int(input('Digite a questão a ser executada: '))
 
