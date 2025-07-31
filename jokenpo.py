@@ -1,7 +1,7 @@
 import os
 import random
 
-def inptjogada():
+def inptJogada():
     while True:
         try:
             print('          PLACAR')
@@ -49,7 +49,7 @@ print('Bem vindo ao jokenpô!\n')
 
 while True:
     computador = random.choice(jogadas)
-    usuario = inptjogada()
+    usuario = inptJogada()
     if usuario == 0:
         break
     usuario = jogadas[usuario - 1]

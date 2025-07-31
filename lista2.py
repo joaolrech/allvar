@@ -59,7 +59,7 @@ def q04():
     n = int(input('Digite quantos termos deseja: '))
 
     x, y = 1, 1
-    
+
     if n >= 1:
         print(x)
     if n >= 2:
@@ -117,7 +117,7 @@ def q06():
     if num <= 1:
         primo = False
 
-    for i in range(2, num):
+    for i in range(2, int(num ** 0.5)):
         if num % i == 0:
             primo = False
             break

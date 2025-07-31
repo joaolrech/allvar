@@ -44,7 +44,7 @@ def q04():
 
     if litros % 18 != 0:
         latas += 1
-    
+
     preco = latas * 80
 
     print(f'Você precisará de {latas} latas de tinta, e isso irá custar R${preco:.2f}')

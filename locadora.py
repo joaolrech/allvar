@@ -1,6 +1,6 @@
 import os
 
-def inptescolha(quant, lista):
+def inptEscolha(quant, lista):
     while True:
         try:
             inpt = int(input())
@@ -12,7 +12,7 @@ def inptescolha(quant, lista):
             print('Entrada inválida. Tente novamente.\n')
             listar(lista)
 
-def inptmenu():
+def inptMenu():
     while True:
         try:
             print('Selecione a opção desejada: ')
@@ -27,7 +27,7 @@ def inptmenu():
             os.system('clear')
             print('Entrada inválida. Tente novamente.\n')
 
-def inptdias(desc):
+def inptDias(desc):
     while True:
         try:
             inpt = int(input(desc))
@@ -50,12 +50,12 @@ def listar(lista):
     else:
         print('Nenhum veículo está ', end='')
         print('disponível.' if lista is disponiveis else ' locado.')
-        
+
     print('\n0 - VOLTAR\n')
 
 def tramit(lista):
     listar(lista)
-    escolha = inptescolha(len(lista), lista)
+    escolha = inptEscolha(len(lista), lista)
     os.system('clear')
 
     if escolha == 0:
@@ -67,7 +67,7 @@ def tramit(lista):
         print(f'{escolhido} locado.\n')
         locados.append(disponiveis.pop(escolha - 1))
     else:
-        dias = inptdias(f'Digite quantos dias você ficou com o {escolhido}: ')
+        dias = inptDias(f'Digite quantos dias você ficou com o {escolhido}: ')
         os.system('clear')
         print(f'{escolhido} devolvido.')
         print(f'Valor em haver: R${locados[escolha - 1][1] * dias:.2f}\n')
@@ -89,7 +89,7 @@ os.system('clear')
 print('Bem vindo à locadora de veículos!\n')
 
 while True:
-    opcao = inptmenu()
+    opcao = inptMenu()
     os.system('clear')
 
     if opcao == 0:

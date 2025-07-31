@@ -1,13 +1,13 @@
 import os
 
-def inptfloat(desc):
+def inptFloat(desc):
     while True:
         try:
             return float(input(desc))
         except ValueError:
             print('Entrada inválida. Tente novamente.')
 
-def inptmenu():
+def inptMenu():
     while True:
         print('Selecione a operação desejada:')
         print('+ Adição')
@@ -25,8 +25,8 @@ def inptmenu():
 
 def entrada(titulo):
     print(f'{titulo}\n')
-    x = inptfloat('Digite o 1º termo da operação: ')
-    y = inptfloat('Digite o 2º termo da operação: ')
+    x = inptFloat('Digite o 1º termo da operação: ')
+    y = inptFloat('Digite o 2º termo da operação: ')
     os.system('clear')
     return x, y
 
@@ -58,7 +58,7 @@ os.system('clear')
 print('Bem vindo à calculadora!\n')
 
 while True:
-    op = inptmenu()
+    op = inptMenu()
     os.system('clear')
 
     if op == 'X':
